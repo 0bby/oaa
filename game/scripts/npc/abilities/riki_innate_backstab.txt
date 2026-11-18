@@ -18,6 +18,12 @@
     {
       "ally_multiplier"                                   "30"
       "backstab_angle"                                    "105"
+      "bonus_potency"
+      {
+        "value"                                           "10"
+        "hero_levelup"                                    "10"
+        "levelup_interval"                                "15"
+      }
       "damage_multiplier"
       {
         "value"                                           "0.55"

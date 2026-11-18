@@ -22,7 +22,7 @@
       {
         "value"                                           "23.5"
         "hero_levelup"                                    "+1.5"
-        "special_bonus_unique_spectre_2"                  "+12"
+        "special_bonus_unique_spectre_2"                  "+10"
       }
       "illusion_damage_outgoing" // This is affecting all illusions that have the Desolate ability
       {

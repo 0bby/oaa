@@ -40,7 +40,6 @@
       "purge_damage" //OAA, intentionally buffed
       {
         "value"                                           "300 600 900 1500 2100"
-        "special_bonus_unique_shadow_demon_1"             "+150" // unused
       }
       "max_charges"
       {
