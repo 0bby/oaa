@@ -11,7 +11,9 @@
     "tape": "tape",
     "tap-summary": "tap-summary",
     "tap-spec": "tap-spec",
-    "fetch:dota-kv": "node scripts/fetch-dota-kv.js"
+    "fetch:dota-kv": "node scripts/fetch-dota-kv.js",
+    "test:oaa": "tape scripts/test/oaa-maxlevel.test.js && tape scripts/test/oaa-missing-ability-files.test.js && tape scripts/test/oaa-lua-kv-keys.test.js && tape scripts/test/dota-patch.test.js",
+    "port": "node scripts/dota-patch/port.js"
   },
   "repository": {
     "type": "git",
