@@ -65,9 +65,16 @@ function portFile (text, ctx) {
     const name = node.key;
     const base = (kv.child(node, 'BaseClass') || {}).value;
     let parent = null;
+    // item upgrade tier (item_x_2..5) of a vanilla item
+    const tier = name.match(/^(item_.+)_(\d)$/);
+    const familyBase = tier && (ctx.vanNew[tier[1]] || ctx.vanOld[tier[1]]) ? tier[1] : null;
     if (ctx.vanNew[name] || ctx.vanOld[name]) parent = name;
     else if (base && (ctx.vanNew[base] || ctx.vanOld[base])) parent = base;
+    else if (familyBase) parent = familyBase;
     if (!parent) return;
+    // the whole family has to stay identical, so if any tier is Lua-backed the
+    // structure of every tier is a human job (values still get ported)
+    const customFamily = (ctx.customFamilies || new Set()).has(familyBase || name);
     const vo = ctx.vanOld[parent];
     const vn = ctx.vanNew[parent];
     if (!vn) {
@@ -75,7 +82,7 @@ function portFile (text, ctx) {
       return;
     }
     if (!vo) return; // new in vanilla; OAA already has it (nothing to diff against)
-    const custom = isCustomBase(base) && parent === name;
+    const custom = (isCustomBase(base) && (parent === name || parent === familyBase)) || customFamily;
     const vLv = vanillaLevels(vn, parent);
     const oLv = oaaLevels(node, vLv, name);
     const log = (a) => actions.push(Object.assign({ entry: name }, a));
@@ -275,4 +282,18 @@ function heroSlotReview (text, ctx) {
   return out;
 }
 
-module.exports = { portFile, heroSlotReview, getCI, TOP_KEYS };
+// Names of vanilla items whose OAA upgrade tiers are reimplemented in Lua /
+// datadriven. texts: array of OAA item file contents.
+function findCustomFamilies (texts) {
+  const out = new Set();
+  texts.forEach(text => {
+    kv.entries(kv.parse(text)).forEach(node => {
+      const m = node.key.match(/^(item_.+)_(\d)$/);
+      const base = (kv.child(node, 'BaseClass') || {}).value;
+      if (m && !node.key.startsWith('item_recipe_') && isCustomBase(base)) out.add(m[1]);
+    });
+  });
+  return out;
+}
+
+module.exports = { portFile, heroSlotReview, findCustomFamilies, getCI, TOP_KEYS };

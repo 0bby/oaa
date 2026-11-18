@@ -19,7 +19,7 @@
 const fs = require('fs');
 const path = require('path');
 const { loadVanilla } = require('./vanilla');
-const { portFile, heroSlotReview } = require('./port-core');
+const { portFile, heroSlotReview, findCustomFamilies } = require('./port-core');
 const { buildReport } = require('./report');
 
 function args () {
@@ -50,7 +50,8 @@ async function main () {
   const from = o.from || o.to + '^';
   console.log('Loading vanilla ' + from + ' and ' + o.to + ' ...');
   const [vOld, vNew] = await Promise.all([loadVanilla(from, opts), loadVanilla(o.to, opts)]);
-  const ctx = { vanOld: vOld.entries, vanNew: vNew.entries };
+  const itemTexts = walk(path.join(npc, 'items')).map(f => fs.readFileSync(f, 'utf8'));
+  const ctx = { vanOld: vOld.entries, vanNew: vNew.entries, customFamilies: findCustomFamilies(itemTexts) };
   const actions = [];
   const oaaNames = new Set();
   let filesChanged = 0;

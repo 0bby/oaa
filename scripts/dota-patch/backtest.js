@@ -13,7 +13,7 @@ const path = require('path');
 const { execFileSync } = require('child_process');
 const kv = require('./kv-text');
 const { loadVanilla } = require('./vanilla');
-const { portFile } = require('./port-core');
+const { portFile, findCustomFamilies } = require('./port-core');
 
 // label, d2vpkr commit that shipped the patch, OAA PR that ported it
 const PORTS = [
@@ -101,6 +101,7 @@ async function main () {
     const s = {};
     const pres = showMany(files.map(f => merge + '^:' + f));
     const posts = showMany(files.map(f => merge + ':' + f));
+    ctx.customFamilies = findCustomFamilies(files.filter(f => f.includes('/items/')).map(f => pres[merge + '^:' + f]).filter(Boolean));
     for (const f of files) {
       const pre = pres[merge + '^:' + f];
       if (!pre) continue;
