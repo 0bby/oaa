@@ -36,7 +36,12 @@ function findMissingTooltips (cb) {
     }
     dotaEnglish = parseKV(dotaEnglish.body.replace(/" and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%\./g, ' and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%."'));
 
-    let translations = getTranslations(true, false, dotaEnglish);
+    let translations;
+    try {
+      translations = getTranslations(true, false, dotaEnglish);
+    } catch (e) {
+      return cb(e, []); // report instead of crashing the whole test run
+    }
     translations = Object.keys(translations.lang.Tokens.values).map(function (name) {
       return name.toLowerCase();
     });

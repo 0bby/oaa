@@ -17,7 +17,13 @@ test('can read in tooltip list', function (t) {
     const dotaEnglish = parseKV(result.body.replace(/" and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%\./g, ' and turn rate reduced by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%."'));
     t.ok(dotaEnglish);
 
-    t.ok(Object.keys(getTranslations(true, false, dotaEnglish).lang.Tokens.values).length, 'there are tokens');
+    // A broken token (often a vanilla tooltip key Valve renamed in a patch)
+    // must fail this test, not crash tape and hide every test after it.
+    try {
+      t.ok(Object.keys(getTranslations(true, false, dotaEnglish).lang.Tokens.values).length, 'there are tokens');
+    } catch (e) {
+      t.fail(e.message);
+    }
     t.end();
   });
 });
