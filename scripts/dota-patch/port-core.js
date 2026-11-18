@@ -16,7 +16,8 @@ const TOP_KEYS = [
   'AbilityChannelTime', 'AbilityDuration', 'AbilityDamage', 'AbilityCharges',
   'AbilityChargeRestoreTime', 'ItemCost', 'ItemInitialCharges', 'ItemDisplayCharges',
   'AbilityBehavior', 'SpellDispellableType', 'SpellImmunityType', 'AbilityUnitDamageType',
-  'AbilityUnitTargetTeam', 'AbilityUnitTargetType', 'AbilityUnitTargetFlags'
+  'AbilityUnitTargetTeam', 'AbilityUnitTargetType', 'AbilityUnitTargetFlags',
+  'AbilityType', 'ItemRequiresCharges'
 ];
 const PROTECTED = /intentionally|because/i;
 
@@ -101,7 +102,10 @@ function portFile (text, ctx) {
       }
       if (r.value === oNode.value) return;
       ed.setValue(oNode, r.value);
-      log({ path, kind: 'applied', rule: r.rule, from: oNode.value, to: r.value, vanilla: from + ' -> ' + to, lowConfidence: r.lowConfidence });
+      // an OAA comment means a maintainer looked at this value: still port it
+      // (the vanilla levels matched old vanilla) but put it on the check list
+      const oaaNote = /OAA/.test(comments) ? 'has OAA comment: ' + comments.trim() : undefined;
+      log({ path, kind: 'applied', rule: r.rule, from: oNode.value, to: r.value, vanilla: from + ' -> ' + to, lowConfidence: r.lowConfidence || !!oaaNote || undefined, note: oaaNote });
     }
 
     // ---- top level keys (may live in AbilityValues as a block in OAA)
@@ -296,4 +300,4 @@ function findCustomFamilies (texts) {
   return out;
 }
 
-module.exports = { portFile, heroSlotReview, findCustomFamilies, getCI, TOP_KEYS };
+module.exports = { portFile, heroSlotReview, findCustomFamilies, vanillaLevels, getCI, TOP_KEYS };

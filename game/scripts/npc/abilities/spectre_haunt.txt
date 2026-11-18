@@ -38,7 +38,6 @@
       {
         "value"                                           "-65 -50 -35 -20 -5"
       }
-      "illusion_effectiveness"                            "40"
       "tooltip_outgoing"
       {
         "value"                                           "35 50 65 80 95"

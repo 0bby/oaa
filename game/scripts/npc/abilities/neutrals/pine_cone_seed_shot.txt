@@ -37,8 +37,6 @@
       "duration"                                          "1"
       "slow"                                              "100"
       "bounce_delay"                                      "0.3"
-      "neutral_cast_attempt_cooldown"                     "8"
-      "neutral_chance_to_cast"                            "60"
     }
   }
 }

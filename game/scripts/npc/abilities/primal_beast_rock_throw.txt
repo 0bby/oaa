@@ -34,10 +34,9 @@
     {
       "base_damage"
       {
-        "value"                                           "300"
+        "value"                                           "325"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "damage_str_pct"                                    "100"
       "impact_radius"
       {
         "value"                                           "225"

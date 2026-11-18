@@ -30,7 +30,11 @@ function buildReport (d) {
   s += '| Review | ' + by('review').length + ' | Vanilla changed but OAA diverged: decide by hand |\n';
   s += '| Protected | ' + by('protected').length + ' | Comment says intentionally/because: left alone, re-check balance |\n';
   s += '| Structural (Lua) | ' + by('structural').length + ' | Custom base class: update KV and Lua together |\n';
-  s += '| New vanilla entries | ' + d.newEntries.length + ' | New abilities/items: add OAA versions with OAA levels |\n\n';
+  s += '| New vanilla entries | ' + d.newEntries.length + ' | New abilities/items: add OAA versions with OAA levels |\n';
+  const fc = k => (d.findings || []).filter(x => x.kind === k).length;
+  s += '| Audit: Lua reads removed key | ' + fc('lua-removed-key') + ' | Update the Lua (it now reads 0) |\n';
+  s += '| Audit: missing OAA levels | ' + fc('missing-oaa-levels') + ' | Add the 2 OAA levels |\n';
+  s += '| Audit: flattened OAA levels | ' + fc('plateau') + ' | Re-scale (past fixes used x2/x3) |\n\n';
   s += 'Applied by rule: ' + Object.keys(rules).map(r => r + ' ' + rules[r]).join(', ') + '\n\n';
   const cols = [['File', a => a.file], ['Entry', a => a.entry], ['Path', a => a.path]];
   s += '## Low confidence\n\n' + table(low, cols.concat([['Rule', a => a.rule], ['Was', a => a.from], ['Now', a => a.to]]));
@@ -38,6 +42,12 @@ function buildReport (d) {
   s += '\n## Protected\n\n' + table(by('protected'), cols.concat([['OAA', a => a.from], ['Vanilla', a => a.vanilla], ['Comment', a => a.note]]));
   s += '\n## Structural (Lua-backed)\n\n' + table(by('structural'), cols.concat([['Note', a => a.note]]));
   s += '\n## New vanilla entries\n\n' + (d.newEntries.length ? d.newEntries.map(n => '- `' + n + '`').join('\n') + '\n' : '_none_\n');
+  const f = d.findings || [];
+  const fk = k => f.filter(x => x.kind === k);
+  const fcols = [['File', a => a.file], ['Entry', a => a.entry], ['Path', a => a.path], ['Note', a => a.note]];
+  s += '\n## Audit: Lua reads a key the port removed (silently 0 in game)\n\n' + table(fk('lua-removed-key'), fcols);
+  s += '\n## Audit: missing OAA levels (recurring after 7.36, 7.40, 7.41)\n\n' + table(fk('missing-oaa-levels'), fcols);
+  s += '\n## Audit: OAA levels flattened (7.41 port mistake, fixed by hand in #3890/#3891)\n\n' + table(fk('plateau'), fcols);
   s += '\n## Applied\n\n' + table(applied, cols.concat([['Rule', a => a.rule], ['Was', a => a.from], ['Now', a => a.to]]));
   return s;
 }

@@ -27,8 +27,8 @@
       "AbilityManaCost"                                   "35 40 45 50 55 60" //OAA, intentionally nerfed
       "damage"
       {
-        "value"                                           "40 80 120 160 200 240"
-        "special_bonus_unique_ancient_apparition_2"       "+65"
+        "value"                                           "35 65 95 125 155 185"
+        "special_bonus_unique_ancient_apparition_2"       "+100"
       }
       "slow"
       {
@@ -44,11 +44,6 @@
       {
         "value"                                           "10 7.5 5 2.5 2.5 2.5"
         "special_bonus_scepter"                           "-100%"
-      }
-      "attacks_as_magic"
-      {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "0"
       }
     }
   }

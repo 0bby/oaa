@@ -33,7 +33,6 @@
       "skeleton_count"
       {
         "value"                                           "2 3 4 5 6"
-        "special_bonus_unique_clinkz_skeletons"           "+2"
       }
       "AbilityCooldown"
       {
@@ -49,7 +48,7 @@
       }
       "skeleton_health"
       {
-        "value"                                           "2"
+        "value"                                           "8"
       }
       "skeleton_health_tooltip"
       {

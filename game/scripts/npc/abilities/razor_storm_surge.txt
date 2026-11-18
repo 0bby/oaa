@@ -23,7 +23,7 @@
       "strike_slow_duration"                              "1.0"
       "strike_damage"
       {
-        "value"                                           "65 100 135 170 340 510"
+        "value"                                           "50 90 130 170 340 510"
         "special_bonus_unique_razor_storm_surge_damage_and_slow"  "+35%"
       }
       "strike_move_slow_pct"

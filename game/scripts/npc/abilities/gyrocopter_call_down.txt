@@ -48,7 +48,7 @@
       }
       "radius"
       {
-        "value"                                           "425"
+        "value"                                           "400"
         "affected_by_aoe_increase"                        "1"
       }
       "tracking_strike_radius"

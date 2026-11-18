@@ -42,7 +42,6 @@
         "value"                                           "-70 -55 -40 -25 -10 5"
         "special_bonus_unique_terrorblade_6"              "+15" // unused
       }
-      "illusion_effectiveness"                            "25"
       "illusion_outgoing_tooltip"
       {
         "value"                                           "30 45 60 75 90 105"

@@ -19,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "1600 1800 2000 2200 2400"
+    "AbilityCastRange"                                    "1800"
     "AbilityCastPoint"                                    "0.3"
 
     // Time
@@ -76,7 +76,6 @@
       {
         "special_bonus_scepter"                           "+0"
       }
-      "trap_health"                                       "2"
     }
   }
 }

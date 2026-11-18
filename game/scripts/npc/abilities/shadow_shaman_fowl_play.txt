@@ -19,15 +19,14 @@
       "movespeed_bonus_pct"
       {
         "value"                                           "5"
-        "hero_levelup"                                    "+1"
+        "hero_levelup"                                    "+5"
+        "levelup_interval"                                "5"
       }
       "total_chickens" //OAA, intentionally rescaled because of lag
       {
         "value"                                           "2"
-      }
-      "AbilityCooldown"
-      {
-        "value"                                           "120"
+        "hero_levelup"                                    "+1"
+        "levelup_interval"                                "15"
       }
       "damage_reduction_duration"
       {

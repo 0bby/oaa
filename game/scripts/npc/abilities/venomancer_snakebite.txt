@@ -19,7 +19,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "600 650 700 750 800 850"
+    "AbilityCastRange"                                    "600"
     "AbilityCastPoint"                                    "0.2"
 
     // Time
@@ -37,6 +37,7 @@
       "base_damage"
       {
         "value"                                           "40 70 100 130 190 250"
+        "special_bonus_unique_venomancer_4"               "+100"
       }
       "tick_damage"
       {

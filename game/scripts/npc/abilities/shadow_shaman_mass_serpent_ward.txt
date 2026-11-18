@@ -24,7 +24,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "110" // it doesnt matter what it says here
+    "AbilityCooldown"                                     "110 105 100" // it doesnt matter what it says here
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -52,8 +52,8 @@
       }
       "ward_health"
       {
-        "value"                                           "2"
-        "special_bonus_unique_shadow_shaman_1"            "+1"
+        "value"                                           "4"
+        "special_bonus_unique_shadow_shaman_1"            "+2"
       }
       "bonus_attack_targets"
       {

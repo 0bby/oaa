@@ -20,7 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "275"
+    "AbilityCastRange"                                    "200"
     "AbilityCastPoint"                                    "0.2"
 
     // Time
@@ -38,7 +38,7 @@
       "attack_count"
       {
         "value"                                           "5 6 7 8 9 10"
-        "special_bonus_unique_tiny_6"                     "+3"
+        "special_bonus_unique_tiny_6"                     "+2"
       }
       "bonus_damage" // bonus base damage; not percentage!
       {

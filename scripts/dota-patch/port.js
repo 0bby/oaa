@@ -21,6 +21,8 @@ const path = require('path');
 const { loadVanilla } = require('./vanilla');
 const { portFile, heroSlotReview, findCustomFamilies } = require('./port-core');
 const { buildReport } = require('./report');
+const { audit } = require('./audit');
+const kv = require('./kv-text');
 
 function args () {
   const a = process.argv.slice(2);
@@ -62,7 +64,7 @@ async function main () {
       const rel = path.relative(npc, file).replace(/\\/g, '/');
       const r = portFile(text, ctx);
       r.actions.forEach(a => actions.push(Object.assign({ file: rel }, a)));
-      (text.match(/^\s*"([a-z0-9_]+)"\s*$/gm) || []).forEach(m => oaaNames.add(m.trim().slice(1, -1)));
+      kv.entries(kv.parse(text)).forEach(n => oaaNames.add(n.key));
       if (r.text !== text) {
         filesChanged++;
         if (o.apply) fs.writeFileSync(file, r.text);
@@ -75,7 +77,9 @@ async function main () {
   });
 
   const newEntries = Object.keys(vNew.entries).filter(k => !vOld.entries[k] && !oaaNames.has(k));
-  const md = buildReport({ from: vOld.sha, to: vNew.sha, actions, newEntries, applied: o.apply, filesChanged });
+  // audit the result (on disk if applied, otherwise the current files)
+  const findings = audit(repo, ctx, actions);
+  const md = buildReport({ from: vOld.sha, to: vNew.sha, actions, newEntries, applied: o.apply, filesChanged, findings });
   fs.writeFileSync(o.report, md);
   fs.writeFileSync(o.report.replace(/\.md$/, '') + '.json', JSON.stringify({ from: vOld.sha, to: vNew.sha, actions, newEntries }, null, 1));
   const count = k => actions.filter(a => a.kind === k).length;

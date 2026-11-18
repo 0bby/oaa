@@ -41,7 +41,7 @@
       "max_damage"
       {
         "value"                                           "35 65 95 125 250 500"
-        "special_bonus_unique_viper_3"                    "+50"
+        "special_bonus_unique_viper_3"                    "+40"
       }
       "max_duration"
       {

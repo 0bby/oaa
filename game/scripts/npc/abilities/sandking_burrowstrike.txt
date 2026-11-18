@@ -34,11 +34,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "burrow_speed"
-      {
-        "value"                                           "2000"
-        "special_bonus_scepter"                           "+1000"
-      }
+      "burrow_speed"                                      "2000"
       "burrow_anim_time"                                  "0.52"
       "AbilityCooldown"
       {
@@ -57,21 +53,7 @@
       "AbilityCastRange"
       {
         "value"                                           "550 625 700 775 850 925"
-        "special_bonus_scepter"                           "+425"
-      }
-      "spine_damage_pct"
-      {
-        "special_bonus_scepter"                           "75"
-      }
-      "spine_duration"
-      {
-        "special_bonus_scepter"                           "=0.8"
-      }
-      "spine_radius"
-      {
-        "value"                                           "0"
-        "special_bonus_scepter"                           "=175"
-        "affected_by_aoe_increase"                        "1"
+        "special_bonus_unique_sand_king_8"                "+200"
       }
     }
   }

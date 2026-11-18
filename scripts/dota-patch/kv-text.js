@@ -184,7 +184,10 @@ class Editor {
     let out = this.text;
     let lastStart = Infinity;
     sorted.forEach(e => {
-      if (e.end > lastStart) return; // overlapping edit, skip
+      if (e.end > lastStart) { // overlapping edit: keep the later one, say so
+        this.dropped = (this.dropped || 0) + 1;
+        return;
+      }
       out = out.slice(0, e.start) + e.text + out.slice(e.end);
       lastStart = e.start;
     });

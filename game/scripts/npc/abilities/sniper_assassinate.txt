@@ -67,7 +67,6 @@
       {
         "special_bonus_shard"                             "0"
       }
-      "bonus_potency"                                     "20 35 50 65 80"
       "cooldown_reduction_on_kill"                        "0 5 10 10 10"
       "attack_factor"                                     "0"
       "attack_factor_tooltip"                             "100"

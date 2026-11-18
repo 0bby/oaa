@@ -32,7 +32,7 @@
       }
       "spell_amp"
       {
-        "value"                                           "12 16 20 24 28 32"
+        "value"                                           "15 20 25 30 35 40"
       }
       "damage_pct"
       {

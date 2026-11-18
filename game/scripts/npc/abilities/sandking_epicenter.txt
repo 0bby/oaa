@@ -36,7 +36,6 @@
       "AbilityCooldown"
       {
         "value"                                           "120 110 100 90 80"
-        "special_bonus_unique_sand_king_8"                "-15"
       }
       "epicenter_pulses"
       {
@@ -79,6 +78,30 @@
       }
       "shard_interval"                                    "3.0"
       "linger_duration"                                   "3.0"
+      "scepter_explosion_radius_pct"
+      {
+        "special_bonus_scepter"                           "+35"
+      }
+      "scepter_explosion_min_dist"
+      {
+        "special_bonus_scepter"                           "+120"
+      }
+      "scepter_explosions_per_pulse"
+      {
+        "special_bonus_scepter"                           "+3"
+      }
+      "spine_tick_rate"
+      {
+        "special_bonus_scepter"                           "=0.5"
+      }
+      "spine_damage_pct"
+      {
+        "special_bonus_scepter"                           "=40"
+      }
+      "shard_explosions_per_pulse"
+      {
+        "special_bonus_scepter"                           "+1"
+      }
     }
   }
 }

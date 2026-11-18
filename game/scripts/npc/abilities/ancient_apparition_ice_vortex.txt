@@ -37,6 +37,7 @@
       "AbilityCooldown" //OAA, intentionally rescaled
       {
         "value"                                           "9 8 7 6 5 4"
+        "special_bonus_unique_ancient_apparition_3"       "-2"
       }
       "radius"
       {
@@ -45,13 +46,12 @@
       }
       "movement_speed_pct"
       {
-        "value"                                           "-10 -15 -20 -25 -30 -35"
-        "special_bonus_unique_ancient_apparition_vortex_slow" "-12"
+        "value"                                           "-8"
         "display_type"                                    "kDebuffPercentage"
       }
       "spell_resist_pct"
       {
-        "value"                                           "-14 -16 -18 -20 -22 -24"
+        "value"                                           "-16 -19 -22 -25 -28 -31"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"
         "display_type"                                    "kDebuffPercentage"
       }

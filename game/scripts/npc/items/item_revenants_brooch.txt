@@ -54,7 +54,7 @@
     {
       "bonus_damage"                                      "72 82 102 132 172" //OAA
       "spell_lifesteal"                                   "0" //OAA
-      "crit_chance"                                       "15"
+      "crit_chance"                                       "30"
       "crit_multiplier"                                   "80 90 100 110 120"
       "hero_spell_lifesteal"                              "14 16 18 20 22" //OAA
       "creep_spell_lifesteal"                             "2.8 3.2 3.6 4.0 4.4" //OAA

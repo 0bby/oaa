@@ -49,10 +49,6 @@
       {
         "value"                                           "20.0"
       }
-      "poison_sting_potency"
-      {
-        "value"                                           "50"
-      }
       "ward_model_scale"
       {
         "value"                                           "1.0"

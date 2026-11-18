@@ -37,12 +37,12 @@
       "AbilityCooldown"
       {
         "value"                                           "6"
-        "special_bonus_unique_phantom_assassin_7"         "-2.5"
+        "special_bonus_unique_phantom_assassin_7"         "-2.0"
       }
       "attack_factor"
       {
         "value"                                           "-70 -55 -40 -25 -15 -5"
-        "special_bonus_unique_phantom_assassin_5"         "+20"
+        "special_bonus_unique_phantom_assassin_5"         "+15"
       }
       "attack_factor_tooltip"
       {

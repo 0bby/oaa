@@ -13,12 +13,14 @@ const path = require('path');
 const { execFileSync } = require('child_process');
 const kv = require('./kv-text');
 const { loadVanilla } = require('./vanilla');
-const { portFile, findCustomFamilies } = require('./port-core');
+const { portFile, findCustomFamilies, getCI } = require('./port-core');
 
 // label, d2vpkr commit that shipped the patch, OAA PR that ported it
 const PORTS = [
-  ['7.40', '907930f70', 3864], ['7.40b', '8b9f4f3bf', 3869], ['7.40c', '1f73c9aca', 3875],
-  ['7.41', 'bdc73e682', 3884], ['7.41a', '62894e2a7', 3887], ['7.41b', '358719e0f', 3888],
+  // majors: [label, vanilla, port PR, clean-up PR to score against, vanilla in force at that clean-up]
+  // (the 7.40/7.41 port PRs had mistakes fixed weeks later, e.g. flattened OAA levels in #3890/#3891)
+  ['7.40', '907930f70', 3864, 3868, '907930f70'], ['7.40b', '8b9f4f3bf', 3869], ['7.40c', '1f73c9aca', 3875],
+  ['7.41', 'bdc73e682', 3884, 3893, '9253fa19c^'], ['7.41a', '62894e2a7', 3887], ['7.41b', '358719e0f', 3888],
   ['7.41c', '9253fa19c', 3894], ['7.41d', '5fe586b96', 3896], ['7.41e', 'ca9626f58', 3899],
   ['7.41f', '969480b2e', 3902]
 ];
@@ -87,7 +89,7 @@ async function main () {
   if (!opt.d2vpkr) throw new Error('--d2vpkr <path to local d2vpkr clone> is required');
   const total = {};
   const examples = {};
-  for (const [label, vc, pr] of PORTS) {
+  for (const [label, vc, pr, truthPr, truthVc] of PORTS) {
     if (opt.only && opt.only !== label) continue;
     const merge = git(['log', '--format=%H', '-1', '--grep', '(#' + pr + ')', 'origin/master']).trim();
     if (!merge) {
@@ -100,17 +102,30 @@ async function main () {
       .split('\n').filter(f => f.endsWith('.txt'));
     const s = {};
     const pres = showMany(files.map(f => merge + '^:' + f));
-    const posts = showMany(files.map(f => merge + ':' + f));
+    let truth = merge;
+    let vTruth = null;
+    if (truthPr && !opt.raw) {
+      truth = git(['log', '--format=%H', '-1', '--grep', '(#' + truthPr + ')', 'origin/master']).trim() || merge;
+      vTruth = truthVc === vc ? null : (await loadVanilla(truthVc, opt)).entries;
+    }
+    const posts = showMany(files.map(f => truth + ':' + f));
+    const vget = (obj, p) => {
+      let cur = obj;
+      for (const part of p.split('/')) cur = getCI(cur, part);
+      return cur && typeof cur === 'object' ? cur.value : cur;
+    };
     ctx.customFamilies = findCustomFamilies(files.filter(f => f.includes('/items/')).map(f => pres[merge + '^:' + f]).filter(Boolean));
     for (const f of files) {
       const pre = pres[merge + '^:' + f];
       if (!pre) continue;
       const r = portFile(pre, ctx);
       if (!r.actions.length) continue;
-      const post = posts[merge + ':' + f];
+      const post = posts[truth + ':' + f];
       r.actions.forEach(a => {
         const key = a.kind === 'applied' ? a.rule : a.kind;
-        const res = a.kind === 'applied' ? score(a, pre, post) : 'n/a';
+        const parentName = vNew.entries[a.entry] ? a.entry : a.entry.replace(/_\d$/, '');
+        const moved = vTruth && a.path && vget(vTruth[parentName], a.path) !== vget(vNew.entries[parentName], a.path);
+        const res = a.kind !== 'applied' ? 'n/a' : moved ? 'vanilla-moved' : score(a, pre, post);
         s[key] = s[key] || {};
         s[key][res] = (s[key][res] || 0) + 1;
         total[key] = total[key] || {};

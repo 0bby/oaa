@@ -24,12 +24,12 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "0.25"
+    "AbilityCooldown"                                     "0"
     "AbilityCharges"                                      "3"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"                                     "125 175 225 275 325"
+    "AbilityManaCost"                                     "110 140 170 200 230"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -53,20 +53,17 @@
       "activation_delay"
       {
         "value"                                           "1"
+        "special_bonus_unique_techies_4"                  "-0.8"
         "display_type"                                    "kDuration"
       }
       "cast_range_scepter_bonus"
       {
         "special_bonus_scepter"                           "300"
       }
-      "AbilityCharges"
-      {
-        "value"                                           "3"
-        "special_bonus_unique_techies_6"                  "+1"
-      }
       "AbilityChargeRestoreTime"
       {
-        "value"                                           "14 13 12 11 10"
+        "value"                                           "15"
+        "special_bonus_unique_techies_3"                  "-2"
       }
       "outer_damage"                                      "50"
       "min_distance"                                      "150"
@@ -77,7 +74,6 @@
         "display_type"                                    "kDebuffPercentage"
       }
       "burn_duration"                                     "4"
-      "tooltip_health_pips"                               "1"
     }
   }
 }

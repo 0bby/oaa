@@ -53,7 +53,7 @@
       }
       "spell_amp_percent"
       {
-        "special_bonus_unique_rubick_5"                   "30"
+        "special_bonus_unique_rubick_5"                   "40"
       }
       "duration" //OAA, intentionally nerfed
       {

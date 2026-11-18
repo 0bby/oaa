@@ -64,3 +64,18 @@ test('portFile ports values, renames and adds keys, respects comments', function
   t.ok(kv.entries(kv.parse(r.text)).length === 1, 'result still parses');
   t.end();
 });
+
+test('audit flags missing OAA levels and flattened OAA levels', function (t) {
+  const { auditLevels } = require('../dota-patch/audit');
+  const text = [
+    '"DOTAAbilities"', '{', '  "foo_nova"', '  {', '    "MaxLevel"   "6"', '    "AbilityValues"', '    {',
+    '      "damage"   "100 200 300 400 400 400"', '      "slow"   "10 20 30 40"', '      "radius"   "300 350 400 450 450 450"',
+    '    }', '  }', '}', ''
+  ].join('\n');
+  const out = [];
+  auditLevels(text, 'abilities/foo_nova.txt', { vanNew: { foo_nova: { MaxLevel: '4' } } }, out);
+  t.ok(out.some(f => f.kind === 'plateau' && f.path === 'damage'), 'damage plateau flagged');
+  t.ok(out.some(f => f.kind === 'missing-oaa-levels' && f.path === 'slow'), 'slow missing OAA levels');
+  t.notOk(out.some(f => f.path === 'radius'), 'flat radius is fine');
+  t.end();
+});

@@ -42,7 +42,8 @@
       }
       "bonus_jump_damage"
       {
-        "value"                                           "20"
+        "value"                                           "15 20 25 35 50"
+        "special_bonus_unique_lich_jump_damage"           "+100" // unused
         "CalculateSpellDamageTooltip"                     "1"
       }
       "jumps"                                             "10" // uses special_bonus_unique_lich_1_oaa
