@@ -54,12 +54,12 @@
       "focusfire_damage_reduction" //OAA, because of special_bonus_unique_windranger_8 buff
       {
         "value"                                           "-25"
-        "special_bonus_facet_windrunner_whirlwind"        "-5" // unused
         "special_bonus_unique_windranger_8"               "+15"
         "CalculateSpellDamageTooltip"                     "0"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_NONE"
       }
       "focusfire_fire_on_the_move"                        "1"
+      "focusfire_attack_effectiveness"                    "75"
       "process_procs"
       {
         "value"                                           "1"

@@ -50,9 +50,9 @@
       {
         "value"                                           "35"
       }
-      "slow_resistance"
+      "status_resistance"
       {
-        "value"                                           "35"
+        "value"                                           "15 20 25 30 35"
       }
       "range"
       {
