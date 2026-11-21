@@ -13,6 +13,13 @@ function zuus_cloud_oaa:OnSpellStart()
   local nimbus = CreateUnitByName("npc_dota_zeus_cloud", self:GetCursorPosition(), false, caster, caster, caster:GetTeamNumber())
   nimbus:SetOwner(caster)
   nimbus:SetControllableByPlayer(caster:GetPlayerOwnerID(), false)
+  -- Pip health (7.42 rules): 4 hp per pip, see modifier_zuus_cloud_oaa:OnAttacked
+  local nimbus_health = 4 * self:GetSpecialValueFor("pip_health")
+  if nimbus_health > 0 then
+    nimbus:SetBaseMaxHealth(nimbus_health)
+    nimbus:SetMaxHealth(nimbus_health)
+    nimbus:SetHealth(nimbus_health)
+  end
   nimbus:AddNewModifier(caster, self, "modifier_zuus_cloud_oaa", {})
   nimbus:AddNewModifier(caster, self, "modifier_kill", {duration = nimbus_duration})
   nimbus:AddNewModifier(caster, self, "modifier_generic_dead_tracker_oaa", {duration = nimbus_duration + MANUAL_GARBAGE_CLEANING_TIME})
@@ -127,13 +134,17 @@ if IsServer() then
     if not attacker or attacker:IsNull() then
       return
     end
-    -- These damage values are ok if total hp of nimbus is 16.
+    -- Pip health like vanilla 7.42 (4 hp per pip, health set in zuus_cloud_oaa:OnSpellStart):
+    -- heroes, towers and the fountain remove 1 pip, creeps/illusions/bosses 1/4 pip,
+    -- and the Nimbus is Fragile: melee heroes remove 2 pips.
     local damage = 1
     if attacker:IsRealHero() then
       damage = 4
-      if attacker:IsRangedAttacker() then
-        damage = 2
+      if not attacker:IsRangedAttacker() then
+        damage = 8
       end
+    elseif attacker:IsTower() or attacker:IsBuilding() then
+      damage = 4
     end
     -- To prevent dead nimbuses staying in memory (preventing SetHealth(0) or SetHealth(-value) )
     if parent:GetHealth() - damage <= 0 then

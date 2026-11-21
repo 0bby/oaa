@@ -564,8 +564,10 @@ if IsServer() then
       damage = math.ceil(parent:GetMaxHealth() / ability:GetSpecialValueFor("attacks_to_destroy"))
     end
 
-    if not attacker:IsRealHero() then
-      damage = 1
+    -- Pip health like vanilla 7.42: heroes, towers and the fountain remove a full hit,
+    -- creeps, illusions and bosses remove 1/4 of a hit
+    if not attacker:IsRealHero() and not attacker:IsTower() and not attacker:IsBuilding() then
+      damage = math.max(1, math.ceil(damage / 4))
     end
 
     -- Allies and the caster destroy the node with 1 hit
