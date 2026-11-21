@@ -369,7 +369,6 @@
 #base "abilities/nyx_assassin_jolt.txt"
 #base "abilities/nyx_assassin_spiked_carapace.txt"
 #base "abilities/nyx_assassin_vendetta.txt"
-#base "abilities/nyx_assassin_scarab_metabolism.txt"
 //#base "abilities/obsidian_destroyer_arcane_orb.txt"
 #base "abilities/obsidian_destroyer_astral_imprisonment.txt"
 #base "abilities/obsidian_destroyer_equilibrium.txt"
