@@ -51,9 +51,8 @@
         "value"                                           "0.35"
         "special_bonus_unique_zeus_3"                     "+0.5"
       }
-      "pip_health"                                        "10" // OAA, vanilla 8 fragile pips +2 for OAA creeps (7.42 pip health); used in oaa_zuus_cloud.lua
-      "hits_to_kill_tooltip"                              "10" // OAA, ranged hero hits = pip_health (melee heroes need half)
-      "creep_hits_to_kill_tooltip"                        "40" // OAA, creeps remove 1/4 pip
+      "hits_to_kill_tooltip"                              "8"
+      "creep_hits_to_kill_tooltip"                        "16"
       "cloud_bounty_tooltip"                              "125"
     }
   }
