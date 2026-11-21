@@ -129,6 +129,36 @@ test('OAA follows vanilla when it turns a value into a block or a block into a v
   t.end();
 });
 
+test('recipes follow vanilla only where OAA still has the old components', function (t) {
+  const oaa = [
+    '"DOTAAbilities"',
+    '{',
+    '  "item_recipe_foo_blade"',
+    '  {',
+    '    "ItemRequirements"',
+    '    {',
+    '      "01"                                                "item_basher;item_sange"',
+    '    }',
+    '  }',
+    '  "item_recipe_foo_thorn"',
+    '  {',
+    '    "ItemRequirements"',
+    '    {',
+    '      "01"                                                "item_orchid;item_crown" // OAA',
+    '    }',
+    '  }',
+    '}',
+    ''
+  ].join('\n');
+  const vanOld = { item_recipe_foo_blade: { ItemRequirements: { '01': 'item_basher;item_sange' } }, item_recipe_foo_thorn: { ItemRequirements: { '01': 'item_orchid*;item_javelin' } } };
+  const vanNew = { item_recipe_foo_blade: { ItemRequirements: { '01': 'item_basher;item_dragon_lance' } }, item_recipe_foo_thorn: { ItemRequirements: { '01': 'item_orchid*;item_oblivion_staff' } } };
+  const r = portFile(oaa, { vanOld, vanNew });
+  t.ok(r.text.includes('"item_basher;item_dragon_lance"'), 'old vanilla recipe updated');
+  t.ok(r.text.includes('"item_orchid;item_crown" // OAA'), 'OAA recipe left alone');
+  t.ok(r.actions.some(a => a.kind === 'review' && /foo_thorn/.test(a.entry)), 'OAA recipe listed for review');
+  t.end();
+});
+
 test('hero base stats copy vanilla only when OAA still has the old vanilla value', function (t) {
   const { portHeroFile } = require('../dota-patch/port-core');
   const oaa = '"DOTAHeroes"\n{\n  "npc_dota_hero_foo"\n  {\n    "AttributeBaseStrength"   "19"\n    "ArmorPhysical"   "5" // OAA\n  }\n}\n';

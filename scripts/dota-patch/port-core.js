@@ -86,7 +86,7 @@ function portFile (text, ctx) {
     }
     if (!vo) return; // new in vanilla; OAA already has it (nothing to diff against)
     // vanilla retired the item (7.42 Revenant's Brooch: cost 0, recipe gone)
-    if (/^item_/.test(parent) && getCI(vn, 'ItemCost') === '0' && +getCI(vo, 'ItemCost') > 0) {
+    if (/^item_(?!recipe_)/.test(parent) && getCI(vn, 'ItemCost') === '0' && +getCI(vo, 'ItemCost') > 0) {
       actions.push({ entry: name, path: '', kind: 'review', note: 'vanilla retired ' + parent + ' (ItemCost 0): keep, remove or replace the OAA family' });
       return;
     }
@@ -127,6 +127,26 @@ function portFile (text, ctx) {
       // (the vanilla levels matched old vanilla) but put it on the check list
       const oaaNote = /OAA/.test(comments) ? 'has OAA comment: ' + comments.trim() : undefined;
       log({ path, kind: 'applied', rule: r.rule, from: oNode.value, to: r.value, vanilla: from + ' -> ' + to, lowConfidence: r.lowConfidence || !!oaaNote || undefined, note: oaaNote });
+    }
+
+    // ---- recipes: copy vanilla's new components when OAA still has the old ones
+    // (OAA writes components without vanilla's '*' marker)
+    const oReq = kv.child(node, 'ItemRequirements');
+    const vReqO = getCI(vo, 'ItemRequirements');
+    const vReqN = getCI(vn, 'ItemRequirements');
+    if (oReq && oReq.children && vReqO && vReqN && JSON.stringify(vReqO) !== JSON.stringify(vReqN)) {
+      const plain = x => typeof x === 'string' ? x.replace(/\*/g, '') : x;
+      oReq.children.forEach(c => {
+        const a = plain(getCI(vReqO, c.key));
+        const b = plain(getCI(vReqN, c.key));
+        if (a === b || c.value === b) return;
+        if (c.value !== a || /OAA/.test(c.comment) || PROTECTED.test(c.comment)) {
+          return log({ path: 'ItemRequirements/' + c.key, kind: 'review', from: c.value, vanilla: a + ' -> ' + b, note: 'OAA recipe differs from old vanilla' });
+        }
+        if (b === undefined) return log({ path: 'ItemRequirements/' + c.key, kind: 'review', from: c.value, note: 'vanilla removed this recipe option' });
+        ed.setValue(c, b);
+        log({ path: 'ItemRequirements/' + c.key, kind: 'applied', rule: 'recipe', from: c.value, to: b, vanilla: a + ' -> ' + b });
+      });
     }
 
     // ---- top level keys (may live in AbilityValues as a block in OAA)
@@ -318,7 +338,7 @@ function portFile (text, ctx) {
 }
 
 // An applied action that only copies vanilla (no OAA level was invented)
-const OBJECTIVE_RULES = new Set(['copy', 'block-to-leaf', 'remove-key', 'remove-sub', 'remove-top', 'rename', 'add-sub', 'add-key', 'leaf-to-block', 'hero-stat', 'slot-comment']);
+const OBJECTIVE_RULES = new Set(['copy', 'block-to-leaf', 'remove-key', 'remove-sub', 'remove-top', 'rename', 'add-sub', 'add-key', 'leaf-to-block', 'hero-stat', 'slot-comment', 'recipe']);
 function isObjective (a) {
   if (a.kind !== 'applied' || a.oaaLevels || a.lowConfidence || !OBJECTIVE_RULES.has(a.rule)) return false;
   if (/-to-/.test(a.rule) && !['copy', 'unchanged'].includes(a.valueRule)) return false;
