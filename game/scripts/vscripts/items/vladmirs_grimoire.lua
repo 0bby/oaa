@@ -186,62 +186,11 @@ function modifier_item_vladmirs_grimoire_passive:GetModifierAura()
 end
 
 ---------------------------------------------------------------------------------------------------
--- Aura stacking with the other Vladmir auras is strongest-wins for every value (same rule as Ristul's Devotion):
---   * vanilla Vladmir's Offering / Buckler auras can't be turned off from Lua, so this aura only adds
---     what is above them (own value - vanilla value, never below 0)
---   * vs Ristul's Devotion (also Lua), only the stronger aura gives the value, Ristul's wins ties
-
-local VANILLA_AURAS = {
-  armor_aura = {
-    {"modifier_item_vladmir_aura", "armor_aura"},
-    {"modifier_item_buckler_effect", "bonus_aoe_armor"},
-  },
-  mana_regen_aura = {
-    {"modifier_item_vladmir_aura", "mana_regen_aura"},
-  },
-  lifesteal_aura = {
-    {"modifier_item_vladmir_aura", "lifesteal_aura"},
-  },
-  damage_aura = {
-    {"modifier_item_vladmir_aura", "damage_aura"},
-  },
-}
-
-local function AuraValue(mod, key)
-  if not mod or mod:IsNull() then
-    return 0
-  end
-  local ability = mod:GetAbility()
-  if not ability or ability:IsNull() then
-    return 0
-  end
-  return ability:GetSpecialValueFor(key)
-end
-
-local function StackedValue(mod, key)
-  local parent = mod:GetParent()
-  local own = AuraValue(mod, key)
-  for _, other in ipairs(parent:FindAllModifiersByName("modifier_item_ristuls_devotion_aura_effect")) do
-    if AuraValue(other, key) >= own then
-      return 0
-    end
-  end
-  local vanilla = 0
-  for _, source in ipairs(VANILLA_AURAS[key] or {}) do
-    local vanilla_mod = parent:FindModifierByName(source[1])
-    if vanilla_mod then
-      vanilla = vanilla + AuraValue(vanilla_mod, source[2])
-    end
-  end
-  return math.max(0, own - vanilla)
-end
-
----------------------------------------------------------------------------------------------------
 -- Custom Vladmir Aura effect
 modifier_item_vladmirs_grimoire_aura_effect = class({})
 
 function modifier_item_vladmirs_grimoire_aura_effect:IsHidden()
-  return false
+  return self:GetParent():HasModifier("modifier_item_vladmir_aura")
 end
 
 function modifier_item_vladmirs_grimoire_aura_effect:IsDebuff()
@@ -269,7 +218,11 @@ function modifier_item_vladmirs_grimoire_aura_effect:GetModifierPhysicalArmorBon
   if not ability or ability:IsNull() then
     return 0
   end
-  return StackedValue(self, "armor_aura")
+  local parent = self:GetParent()
+  if parent:HasModifier("modifier_item_vladmir_aura") then
+    return 0
+  end
+  return ability:GetSpecialValueFor("armor_aura")
 end
 
 function modifier_item_vladmirs_grimoire_aura_effect:GetModifierConstantManaRegen()
@@ -277,7 +230,11 @@ function modifier_item_vladmirs_grimoire_aura_effect:GetModifierConstantManaRege
   if not ability or ability:IsNull() then
     return 0
   end
-  return StackedValue(self, "mana_regen_aura")
+  local parent = self:GetParent()
+  if parent:HasModifier("modifier_item_vladmir_aura") then
+    return 0
+  end
+  return ability:GetSpecialValueFor("mana_regen_aura")
 end
 
 function modifier_item_vladmirs_grimoire_aura_effect:GetModifierBaseDamageOutgoing_Percentage()
@@ -285,7 +242,11 @@ function modifier_item_vladmirs_grimoire_aura_effect:GetModifierBaseDamageOutgoi
   if not ability or ability:IsNull() then
     return 0
   end
-  return StackedValue(self, "damage_aura")
+  local parent = self:GetParent()
+  if parent:HasModifier("modifier_item_vladmir_aura") then
+    return 0
+  end
+  return ability:GetSpecialValueFor("damage_aura")
 end
 
 if IsServer() then
@@ -335,6 +296,11 @@ if IsServer() then
       return
     end
 
+    -- Check if parent already has Vladmir Aura
+    if parent:HasModifier("modifier_item_vladmir_aura") then
+      return
+    end
+
     -- Check if attacker exists
     if not attacker or attacker:IsNull() then
       return
@@ -376,8 +342,7 @@ if IsServer() then
     end
 
     -- Get lifesteal percent
-    -- (strongest-wins vs Vladmir's Offering and Ristul's Devotion)
-    local lifesteal_percent = StackedValue(self, "lifesteal_aura")
+    local lifesteal_percent = ability:GetSpecialValueFor("lifesteal_aura")
 
     -- Check if damage and lifesteal are > 0
     if damage <= 0 or lifesteal_percent <= 0 then
