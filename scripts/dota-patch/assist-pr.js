@@ -27,7 +27,7 @@ if (!o.pr || !o.to || !o.worktree) {
 const repo = path.join(__dirname, '..', '..');
 const git = (args, cwd) => execFileSync('git', args, { cwd: cwd || repo, encoding: 'utf8', maxBuffer: 1 << 28 }).trim();
 const ref = 'pr-' + o.pr;
-const branch = 'assist-' + o.pr;
+const branch = o.branch || 'assist-' + o.pr;
 const wt = path.resolve(o.worktree);
 
 git(['fetch', '-q', '--force', 'origin', 'pull/' + o.pr + '/head:' + ref, 'master:refs/remotes/origin/master']);
