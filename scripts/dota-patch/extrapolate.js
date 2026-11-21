@@ -81,7 +81,7 @@ function portValue (vOld, vNew, oOld, opts) {
     if (!aFlat || !close(o[0].num, a[0].num)) return { skip: 'OAA diverged from vanilla' };
     if (b.length === 1) return { value: vNew, rule: 'copy' };
     const want = opts.oaaLevels || b.length;
-    return { value: extendLinear(b, want), rule: 'new-levels-linear', lowConfidence: true };
+    return { value: extendLinear(b, want, opts.stepFactor), rule: 'new-levels-linear', lowConfidence: true };
   }
 
   let L;
@@ -137,10 +137,16 @@ function portValue (vOld, vNew, oOld, opts) {
   return { value: head.concat(tail).join(' '), rule, lowConfidence: lowConfidence || flatLow || undefined };
 }
 
-function extendLinear (b, want) {
+// factor < 1 tapers the OAA levels (maintainers use about 1/3 of the vanilla step
+// for new durations and percentages, e.g. Requiem 1.2 1.5 1.8 -> 1.9 2.0)
+function extendLinear (b, want, factor) {
   const L = b.length;
-  const step = L >= 2 ? b[L - 1].num - b[L - 2].num : 0;
   const dec = Math.max(...b.map(t => t.dec));
+  let step = L >= 2 ? b[L - 1].num - b[L - 2].num : 0;
+  if (factor && factor !== 1 && step) {
+    const unit = Math.pow(10, -dec);
+    step = Math.sign(step) * Math.max(unit, Math.round(Math.abs(step) * factor / unit) * unit);
+  }
   const out = b.map(t => t.raw);
   for (let i = 1; out.length < want; i++) {
     out.push(fmt(b[L - 1].num + step * i, dec, b[L - 1].pre, b[L - 1].suf));

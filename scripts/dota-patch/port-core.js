@@ -20,6 +20,7 @@ const TOP_KEYS = [
   'AbilityType', 'ItemRequiresCharges'
 ];
 const PROTECTED = /intentionally|because/i;
+const TAPER_KEYS = /duration|time|pct|percent|chance|resist|slow|amp|potency|reduction/i;
 
 function getCI (obj, key) {
   if (!obj || typeof obj !== 'object') return undefined;
@@ -104,6 +105,9 @@ function portFile (text, ctx) {
       editMark = ed.edits.length;
     };
     let extrapolated = false; // set by fitLevels when it invents OAA levels
+    let currentKey = ''; // key being inserted, for taperFor
+    // --accept taper: new durations/percentages get OAA levels at 1/3 of the vanilla step
+    const taperFor = p => ctx.taper && TAPER_KEYS.test(p || '') ? 1 / 3 : 1;
 
     function portLeaf (oNode, from, to, path, commentNodes) {
       if (!oNode || oNode.value === undefined) return;
@@ -112,7 +116,7 @@ function portFile (text, ctx) {
         log({ path, kind: 'protected', from: oNode.value, vanilla: from + ' -> ' + to, note: comments });
         return;
       }
-      const r = portValue(from, to, oNode.value, { vanillaLevels: vLv, oaaLevels: oLv });
+      const r = portValue(from, to, oNode.value, { vanillaLevels: vLv, oaaLevels: oLv, stepFactor: taperFor(path) });
       if (r.skip) {
         log({ path, kind: 'review', from: oNode.value, vanilla: from + ' -> ' + to, note: r.skip + (/OAA/.test(comments) ? ' (has OAA comment)' : '') });
         return;
@@ -220,6 +224,7 @@ function portFile (text, ctx) {
           if (sNode) return;
           if (custom) return log({ path: path + '/' + s, kind: 'structural', note: 'new vanilla sub key' });
           const prev = Object.keys(bn).slice(0, sIdx).reverse().map(x => kv.child(oK, x)).find(Boolean);
+          currentKey = k;
           const val = fitLevels(bn[s]);
           const line = kv.formatLeaf(indentFor(oK, prev), s, val, prev ? kv.valueColumn(text, prev) : 58, eol);
           if (prev) ed.insertAfter(prev, line);
@@ -261,7 +266,7 @@ function portFile (text, ctx) {
       const t = parseTokens(val);
       if (t && t.length > 1 && t.length === vLv && oLv > vLv) {
         extrapolated = true;
-        return extendLinear(t, oLv);
+        return extendLinear(t, oLv, taperFor(currentKey));
       }
       return val;
     }
@@ -285,6 +290,7 @@ function portFile (text, ctx) {
     }
 
     function insertKey (k, val, prevKeys) {
+      currentKey = k;
       const prev = prevKeys.map(x => kv.child(oAV, x)).find(Boolean);
       const sib = prev || (oAV.children && oAV.children[0]);
       const indent = sib ? kv.indentOf(text, sib) : kv.indentOf(text, oAV) + '  ';
@@ -412,4 +418,4 @@ function findCustomFamilies (texts) {
   return out;
 }
 
-module.exports = { portFile, isObjective, heroSlotReview, portHeroFile, findCustomFamilies, vanillaLevels, getCI, TOP_KEYS };
+module.exports = { TAPER_KEYS, portFile, isObjective, heroSlotReview, portHeroFile, findCustomFamilies, vanillaLevels, getCI, TOP_KEYS };

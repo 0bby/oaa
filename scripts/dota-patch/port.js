@@ -15,6 +15,9 @@
   --skip-marked <tag>   leave files whose header comment carries <tag> (e.g. 7.42,
             how maintainers mark a file as done) untouched
   --skip-files <list>   leave the files in this list (one npc-relative path per line)
+  --accept <rules>      with --safe, also apply these OAA-level choices (balance calls
+            a maintainer has signed off): linear, ratio, item-offset, taper
+            (taper: new durations/percentages step 1/3 of vanilla at OAA levels)
 
   Mechanical changes (applied): value copies, OAA-level re-extrapolation,
   key renames / additions / removals. Everything a human must decide goes in
@@ -24,7 +27,19 @@
 const fs = require('fs');
 const path = require('path');
 const { loadVanilla } = require('./vanilla');
-const { portFile, portHeroFile, isObjective, findCustomFamilies } = require('./port-core');
+const { portFile, portHeroFile, isObjective, findCustomFamilies, TAPER_KEYS } = require('./port-core');
+
+// OAA-level edits a maintainer has accepted as a policy (--accept)
+function accepted (a, accept) {
+  if (a.kind !== 'applied' || /has OAA comment/.test(a.note || '')) return false;
+  const rule = /-to-/.test(a.rule) ? a.valueRule : a.rule;
+  if (accept.has('linear') && rule === 'linear') return true;
+  if (accept.has('ratio') && rule === 'ratio') return true;
+  if (accept.has('item-offset') && rule === 'offset' && /^item_/.test(a.entry)) return true;
+  if (accept.has('taper') && TAPER_KEYS.test(a.path) &&
+    (rule === 'new-levels-linear' || (/^add-(key|sub)$/.test(rule) && a.lowConfidence))) return true;
+  return false;
+}
 const { buildReport } = require('./report');
 const { audit } = require('./audit');
 const kv = require('./kv-text');
@@ -59,7 +74,9 @@ async function main () {
   console.log('Loading vanilla ' + from + ' and ' + o.to + ' ...');
   const [vOld, vNew] = await Promise.all([loadVanilla(from, opts), loadVanilla(o.to, opts)]);
   const itemTexts = walk(path.join(npc, 'items')).map(f => fs.readFileSync(f, 'utf8'));
-  const ctx = { vanOld: vOld.entries, vanNew: vNew.entries, customFamilies: findCustomFamilies(itemTexts) };
+  const accept = new Set((o.accept || '').split(',').map(x => x.trim()).filter(Boolean));
+  const ok = a => isObjective(a) || accepted(a, accept);
+  const ctx = { vanOld: vOld.entries, vanNew: vNew.entries, customFamilies: findCustomFamilies(itemTexts), taper: accept.has('taper') };
   const skipList = new Set(o['skip-files'] ? fs.readFileSync(o['skip-files'], 'utf8').split(/\r?\n/).map(x => x.trim()).filter(Boolean) : []);
   const tag = o['skip-marked'];
   const marked = text => tag && text.split(/\r?\n/).some(l => /^\s*\/\//.test(l) && l.split(/[^0-9A-Za-z.]+/).includes(tag));
@@ -101,8 +118,14 @@ async function main () {
   });
 
   if (o.safe) {
+    const isCost = a => /(^|\/)ItemCost$/i.test(a.path || '');
     results.forEach(({ r }) => r.actions.forEach(a => {
-      if (a.edits && !isObjective(a)) heldGroups.add(group(a.entry));
+      if (isCost(a)) return; // costs are derived: the cost-tree test writes them
+      if (a.edits && !ok(a)) heldGroups.add(group(a.entry));
+      // item tiers must stay identical: one tier left for review holds the family
+      if (/^item_/.test(a.entry) && a.path && ['review', 'protected', 'structural'].includes(a.kind)) heldGroups.add(group(a.entry));
+      // --stage objective: leave groups that need an accepted OAA-level edit for the next commit
+      if (o.stage === 'objective' && a.edits && !isObjective(a)) heldGroups.add(group(a.entry));
     }));
   }
   results.forEach(({ file, text, r }) => {
@@ -112,7 +135,7 @@ async function main () {
       const ed = new kv.Editor(text);
       r.actions.forEach(a => {
         if (!a.edits) return;
-        if (heldGroups.has(group(a.entry))) a.held = true;
+        if (heldGroups.has(group(a.entry)) || /(^|\/)ItemCost$/i.test(a.path || '')) a.held = true;
         else ed.edits.push(...a.edits);
       });
       out = ed.apply();

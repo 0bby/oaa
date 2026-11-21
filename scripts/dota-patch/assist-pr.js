@@ -68,19 +68,30 @@ const skipFile = path.join(wt, branch + '-skip.txt');
 fs.writeFileSync(skipFile, touched.join('\n') + '\n');
 
 const report = path.join(wt, branch + '.md');
-const args = [path.join(tools, 'port.js'), '--to', o.to, '--apply', '--safe', '--skip-files', skipFile, '--report', report];
-if (o.from) args.push('--from', o.from);
-if (o.d2vpkr) args.push('--d2vpkr', o.d2vpkr);
-if (o.tag) args.push('--skip-marked', o.tag);
-console.log(execFileSync(process.execPath, args, { cwd: wt, encoding: 'utf8', maxBuffer: 1 << 28 }).trim());
+const port = extra => {
+  const args = [path.join(tools, 'port.js'), '--to', o.to, '--apply', '--safe', '--skip-files', skipFile, '--report', report].concat(extra);
+  if (o.from) args.push('--from', o.from);
+  if (o.d2vpkr) args.push('--d2vpkr', o.d2vpkr);
+  if (o.tag) args.push('--skip-marked', o.tag);
+  console.log(execFileSync(process.execPath, args, { cwd: wt, encoding: 'utf8', maxBuffer: 1 << 28 }).trim());
+};
+const commit = msg => {
+  git(['add', '-A', 'game/scripts/npc'], wt);
+  const staged = git(['diff', '--cached', '--shortstat'], wt);
+  if (!staged) return console.log('OK nothing to commit for: ' + msg);
+  git(['-c', 'user.name=0bby', '-c', 'user.email=72665894+0bby@users.noreply.github.com', 'commit', '-q', '-m', msg], wt);
+  console.log('OK commit: ' + msg + ' (' + staged + ')');
+};
 
-git(['add', '-A', 'game/scripts/npc'], wt);
-const staged = git(['diff', '--cached', '--shortstat'], wt);
-if (!staged) {
-  console.log('OK nothing objective left to apply on top of ' + ref + ' ' + head);
-} else {
-  git(['-c', 'user.name=0bby', '-c', 'user.email=72665894+0bby@users.noreply.github.com', 'commit', '-q', '-m',
-    'Vanilla ' + (o.tag || '') + ' copies for files not yet done in #' + o.pr + ' (no OAA levels changed)'], wt);
-  console.log('OK ' + branch + ' = ' + ref + ' ' + head + ' + 1 commit (' + staged + '). Skipped ' + touched.length + ' files the PR touched.');
+// commit 1: vanilla copies only. commit 2 (with --accept): the OAA-level choices
+// a human signed off, recomputed from the PR head so both commits stay consistent
+const accept = o.accept ? ['--accept', o.accept] : [];
+port(accept.length ? accept.concat(['--stage', 'objective']) : []);
+commit('Vanilla ' + (o.tag || '') + ' copies for files not yet done in #' + o.pr + ' (no OAA levels changed)');
+if (accept.length) {
+  git(['checkout', '-q', ref, '--', 'game/scripts/npc'], wt);
+  port(accept);
+  commit('OAA levels 5-6 by agreed rules (' + o.accept + ') for files not yet done in #' + o.pr);
 }
-console.log('Decisions (OAA levels 5-6, low confidence): ' + report.replace(/\.md$/, '-decisions.json'));
+console.log(branch + ' is ' + ref + ' ' + head + ' + the commits above. Skipped ' + touched.length + ' files the PR touched.');
+console.log('Decisions still open: ' + report.replace(/\.md$/, '-decisions.json'));
