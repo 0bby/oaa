@@ -1,0 +1,45 @@
+//==============================================================================
+// Ristul's Devotion
+//==============================================================================
+"DOTA_Tooltip_Ability_item_recipe_ristuls_devotion_1"                           "#{DOTA_Tooltip_Ability_item_recipe_ristuls_devotion}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_1"                                  "#{DOTA_Tooltip_Ability_item_ristuls_devotion}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_1_Description"                      "<h1>Passive: Ristul's Aura</h1>Grants %lifesteal_aura%%% lifesteal, %spell_lifesteal_aura%%% spell lifesteal (%creep_spell_lifesteal_aura%%% against creeps), %damage_aura%%% bonus damage, %mana_regen_aura% mana regeneration, and %armor_aura% armor to nearby allies.<br><br>Radius: %aura_radius%"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_1_Note0"                            "#{DOTA_Tooltip_ability_item_ristuls_devotion_Note0}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_1_Note1"                            "Doesn't stack with Vladmir's Offering, Vladmir's Grimoire or Buckler: allies get the strongest of each value."
+"DOTA_Tooltip_ability_item_ristuls_devotion_1_armor"                            "#{DOTA_Tooltip_ability_item_ristuls_devotion_armor}"
+"DOTA_Tooltip_ability_item_ristuls_devotion_1_mana_regen"                       "#{DOTA_Tooltip_ability_item_ristuls_devotion_mana_regen}"
+
+"DOTA_Tooltip_Ability_item_recipe_ristuls_devotion_2"                           "#{DOTA_Tooltip_Ability_item_recipe_ristuls_devotion_1}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_2"                                  "#{DOTA_Tooltip_Ability_item_ristuls_devotion_1}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_2_Description"                      "#{DOTA_Tooltip_Ability_item_ristuls_devotion_1_Description}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_2_Note0"                            "#{DOTA_Tooltip_Ability_item_ristuls_devotion_1_Note0}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_2_Note1"                            "#{DOTA_Tooltip_Ability_item_ristuls_devotion_1_Note1}"
+"DOTA_Tooltip_ability_item_ristuls_devotion_2_armor"                            "#{DOTA_Tooltip_ability_item_ristuls_devotion_1_armor}"
+"DOTA_Tooltip_ability_item_ristuls_devotion_2_mana_regen"                       "#{DOTA_Tooltip_ability_item_ristuls_devotion_1_mana_regen}"
+
+"DOTA_Tooltip_Ability_item_recipe_ristuls_devotion_3"                           "#{DOTA_Tooltip_Ability_item_recipe_ristuls_devotion_1}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_3"                                  "#{DOTA_Tooltip_Ability_item_ristuls_devotion_1}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_3_Description"                      "#{DOTA_Tooltip_Ability_item_ristuls_devotion_1_Description}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_3_Note0"                            "#{DOTA_Tooltip_Ability_item_ristuls_devotion_1_Note0}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_3_Note1"                            "#{DOTA_Tooltip_Ability_item_ristuls_devotion_1_Note1}"
+"DOTA_Tooltip_ability_item_ristuls_devotion_3_armor"                            "#{DOTA_Tooltip_ability_item_ristuls_devotion_1_armor}"
+"DOTA_Tooltip_ability_item_ristuls_devotion_3_mana_regen"                       "#{DOTA_Tooltip_ability_item_ristuls_devotion_1_mana_regen}"
+
+"DOTA_Tooltip_Ability_item_recipe_ristuls_devotion_4"                           "#{DOTA_Tooltip_Ability_item_recipe_ristuls_devotion_1}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_4"                                  "#{DOTA_Tooltip_Ability_item_ristuls_devotion_1}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_4_Description"                      "#{DOTA_Tooltip_Ability_item_ristuls_devotion_1_Description}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_4_Note0"                            "#{DOTA_Tooltip_Ability_item_ristuls_devotion_1_Note0}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_4_Note1"                            "#{DOTA_Tooltip_Ability_item_ristuls_devotion_1_Note1}"
+"DOTA_Tooltip_ability_item_ristuls_devotion_4_armor"                            "#{DOTA_Tooltip_ability_item_ristuls_devotion_1_armor}"
+"DOTA_Tooltip_ability_item_ristuls_devotion_4_mana_regen"                       "#{DOTA_Tooltip_ability_item_ristuls_devotion_1_mana_regen}"
+
+"DOTA_Tooltip_Ability_item_recipe_ristuls_devotion_5"                           "#{DOTA_Tooltip_Ability_item_recipe_ristuls_devotion_1}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_5"                                  "#{DOTA_Tooltip_Ability_item_ristuls_devotion_1}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_5_Description"                      "#{DOTA_Tooltip_Ability_item_ristuls_devotion_1_Description}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_5_Note0"                            "#{DOTA_Tooltip_Ability_item_ristuls_devotion_1_Note0}"
+"DOTA_Tooltip_Ability_item_ristuls_devotion_5_Note1"                            "#{DOTA_Tooltip_Ability_item_ristuls_devotion_1_Note1}"
+"DOTA_Tooltip_ability_item_ristuls_devotion_5_armor"                            "#{DOTA_Tooltip_ability_item_ristuls_devotion_1_armor}"
+"DOTA_Tooltip_ability_item_ristuls_devotion_5_mana_regen"                       "#{DOTA_Tooltip_ability_item_ristuls_devotion_1_mana_regen}"
+
+"DOTA_Tooltip_modifier_item_ristuls_devotion_aura_effect"                       "#{DOTA_Tooltip_modifier_item_ristuls_devotion_aura}"
+"DOTA_Tooltip_modifier_item_ristuls_devotion_aura_effect_Description"           "Gaining %dMODIFIER_PROPERTY_TOOLTIP%%% lifesteal, %dMODIFIER_PROPERTY_TOOLTIP2%%% spell lifesteal, %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% damage, %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor, and %fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regen."
