@@ -161,7 +161,14 @@ class Editor {
   }
 
   renameKey (node, key) {
-    this.edits.push({ start: node.keyStart, end: node.keyEnd, text: key });
+    if (node.valueStart === undefined) {
+      this.edits.push({ start: node.keyStart, end: node.keyEnd, text: key });
+      return;
+    }
+    // leaf: keep the value in its column (rename used to shift it)
+    const gap = (node.valueStart - 1) - (node.keyEnd + 1);
+    const pad = Math.max(1, gap + (node.keyEnd - node.keyStart) - key.length);
+    this.edits.push({ start: node.keyStart, end: node.valueStart - 1, text: key + '"' + ' '.repeat(pad) });
   }
 
   remove (node) {

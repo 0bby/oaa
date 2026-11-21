@@ -57,7 +57,7 @@ test('portFile ports values, renames and adds keys, respects comments', function
   t.ok(r.text.includes('"90 100 110 120 130 140"'), 'mana cost continues the step');
   t.ok(r.text.includes('"120 220 320 420 840 1680"'), 'damage keeps the x2/x4 OAA levels');
   t.ok(r.text.includes('"10 20 30 40 50 60" // OAA, intentionally buffed'), 'protected value untouched');
-  t.ok(r.text.includes('"new_name"'), 'renamed key');
+  t.ok(r.text.includes('      "new_name"                                          "5"'), 'renamed key, value column kept');
   t.notOk(r.text.includes('"old_name"'), 'old key gone');
   t.ok(/"radius"\s+"300"/.test(r.text), 'new key added');
   t.ok(r.actions.some(a => a.kind === 'protected'), 'protected logged for review');
