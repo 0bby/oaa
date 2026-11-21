@@ -49,10 +49,10 @@
         "value"                                           "70 120 170 270 370"
         "CalculateSpellDamageTooltip"                     "1"
       }
-      "AbilityCooldown" //OAA, intentionally buffed
+      "AbilityCooldown" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "110 105 100 95 90"
-        "special_bonus_scepter"                           "-40"
+        "value"                                           "115 105 95 90 85"
+        "special_bonus_scepter"                           "-35"
       }
       "illusion_count"
       {

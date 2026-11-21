@@ -35,7 +35,7 @@
     "AbilityValues"
     {
       "hp_cost_perc_per_second"                           "5"
-      "base_damage"                                       "24 26 28 30 60 120" //OAA, intentionally buffed
+      "base_damage"                                       "32 33 34 35 70 140" //OAA, intentionally buffed; 7.42 vanilla 15 20 25 30 -> 20 25 30 35 re-applied (draft)
       "hp_perc_damage"
       {
         "value"                                           "1.5 3 4.5 6.0 6.75 7.5"

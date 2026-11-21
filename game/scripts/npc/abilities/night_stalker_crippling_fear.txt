@@ -57,10 +57,10 @@
         "special_bonus_unique_night_stalker_crippling_fear_radius"  "+75"
         "affected_by_aoe_increase"                        "1"
       }
-      "dps" //OAA, intentionally buffed
+      "dps" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
         "value"                                           "25 35 45 55 110 220"
-        "special_bonus_unique_night_stalker_crippling_fear_damage"  "+10"
+        "special_bonus_unique_night_stalker_crippling_fear_damage"  "+15"
       }
       "tick_rate"                                         "0.1"
       "death_refresh"

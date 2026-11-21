@@ -49,9 +49,9 @@
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
         "special_bonus_unique_monkey_king_10"             "+60"
       }
-      "AbilityCooldown" //OAA, intentionally buffed
+      "AbilityCooldown" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "18 17 16 15 14 13"
+        "value"                                           "18 16 14 12 11 10"
       }
       "strike_radius"
       {

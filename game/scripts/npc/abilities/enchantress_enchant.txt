@@ -41,7 +41,7 @@
       {
         "value"                                           "0"
       }
-      "dominate_duration"                                 "120" //OAA, intentionally buffed
+      "dominate_duration"                                 "120" //OAA, intentionally buffed; 7.42 vanilla 30 60 90 120 -> 45 70 95 120 re-applied (draft)
       "xp_gain_pct"                                       "40"
       "level_req"                                         "6" //OAA, intentionally buffed
       "enchant_health"

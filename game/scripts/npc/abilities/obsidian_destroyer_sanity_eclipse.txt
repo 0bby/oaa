@@ -29,7 +29,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "base_damage"                                       "200 400 600 1000 1400" //OAA, intentionally buffed
+      "base_damage"                                       "180 360 540 900 1300" //OAA, intentionally buffed; 7.42 vanilla 200 300 400 -> 180 270 360 re-applied (draft)
       "radius"
       {
         "value"                                           "500 525 550 575 600"

@@ -18,10 +18,10 @@
     "AbilityValues"
     {
       "target_search_bonus_range"                         "175"
-      "double_shot_chance" //OAA, intentionally rescaled
+      "double_shot_chance" //OAA, intentionally rescaled; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "20 25 30 35 40 45"
-        "special_bonus_unique_muerta_gunslinger_double_shot_chance"  "+20"
+        "value"                                           "22 28 33 39 44 50"
+        "special_bonus_unique_muerta_gunslinger_double_shot_chance"  "+15"
       }
       "bonus_damage"
       {

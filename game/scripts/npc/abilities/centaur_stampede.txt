@@ -34,9 +34,9 @@
         "special_bonus_scepter"                           "+1"
       }
       "base_damage"                                       "0"
-      "strength_damage" //OAA, intentionally buffed
+      "strength_damage" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "2 3 4 5 6"
+        "value"                                           "2 2.7 3.3 4.2 5"
         "CalculateSpellDamageTooltip"                     "1"
       }
       "slow_duration"                                     "3"

@@ -32,10 +32,10 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "total_damage" //OAA, because of special_bonus_unique_keeper_of_the_light buff
+      "total_damage" //OAA, because of special_bonus_unique_keeper_of_the_light buff; 7.42 vanilla change re-applied (draft)
       {
         "value"                                           "185 290 395 500 1000 2000"
-        "special_bonus_unique_keeper_of_the_light"        "+500"
+        "special_bonus_unique_keeper_of_the_light"        "+475"
       }
       "max_channel_time"                                  "3"
       "radius"

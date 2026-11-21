@@ -27,7 +27,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "20" //OAA, intentionally nerfed
+      "duration"                                          "13" //OAA, intentionally nerfed; 7.42 vanilla 30 -> 20 re-applied (draft)
       "radius"                                            "600"
       "fade_duration"                                     "0.8"
       "break_on_attack"                                   "1"

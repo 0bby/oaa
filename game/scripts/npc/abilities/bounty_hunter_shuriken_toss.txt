@@ -37,10 +37,10 @@
       "speed"                                             "1000"
       "cast_range"                                        "525" //OAA, same as AbilityCastRange
       "slow"                                              "100"
-      "bonus_damage" //OAA, because of special_bonus_unique_bounty_hunter_2 buff
+      "bonus_damage" //OAA, because of special_bonus_unique_bounty_hunter_2 buff; 7.42 vanilla change re-applied (draft)
       {
         "value"                                           "100 170 240 310 620 930"
-        "special_bonus_unique_bounty_hunter_2"            "+300"
+        "special_bonus_unique_bounty_hunter_2"            "+270"
       }
       "bounce_aoe"
       {

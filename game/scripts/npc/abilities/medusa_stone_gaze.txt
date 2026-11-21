@@ -45,10 +45,10 @@
         "value"                                           "1200"
         "affected_by_aoe_increase"                        "1"
       }
-      "duration" //OAA, intentionally rescaled and nerfed the talent
+      "duration" //OAA, intentionally rescaled and nerfed the talent; 7.42 vanilla change re-applied (draft)
       {
         "value"                                           "5 5.25 5.5 5.75 6"
-        "special_bonus_unique_medusa"                     "+1.5"
+        "special_bonus_unique_medusa"                     "+2"
       }
       "bonus_physical_damage" //OAA, intentionally rescaled
       {

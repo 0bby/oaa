@@ -25,9 +25,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA, intentionally buffed
+      "AbilityCooldown" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "33 32 31 30 29 28"
+        "value"                                           "37 35 33 31 30 29"
         "special_bonus_unique_doom_11"                    "=2.5"
       }
       "AbilityManaCost"

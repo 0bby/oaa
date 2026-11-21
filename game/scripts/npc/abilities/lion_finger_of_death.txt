@@ -35,14 +35,14 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage" //OAA, intentionally buffed
+      "damage" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "600 850 1100 1600 2100"
+        "value"                                           "550 800 1050 1500 2000"
         "special_bonus_scepter"                           "+100"
       }
-      "damage_per_kill" //OAA, intentionally buffed special_bonus_unique_lion_8 talent; reminder: this is also bonus attack dmg per kill
+      "damage_per_kill" //OAA, intentionally buffed special_bonus_unique_lion_8 talent; reminder: this is also bonus attack dmg per kill; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "25"
+        "value"                                           "20"
         "special_bonus_unique_lion_8"                     "+25"
         "CalculateSpellDamageTooltip"                     "0"
       }

@@ -15,7 +15,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "aoe_per_int"                                       "0.2" //OAA, intentionally nerfed
+      "aoe_per_int"                                       "0.2" //OAA, intentionally nerfed; 7.42 vanilla 0.7 -> 0.6 re-applied (draft)
       "current_aoe_bonus"
       {
         "dynamic_value"                                   "true"

@@ -33,12 +33,12 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO" //OAA, Valve forgot
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES" // 7.42: Valve now sets YES on purpose (was NO, "OAA, Valve forgot") (draft)
     "AbilityTextureName"                                  "custom/pipe_of_insight_1"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30" //OAA
+    "AbilityCooldown"                                     "25" //OAA; 7.42 vanilla 60.0 -> 50.0 re-applied (draft)
     "AbilitySharedCooldown"                               "pipe"
     "AbilityManaCost"                                     "150"
     "AbilityCastRange"                                    "1200"

@@ -27,7 +27,7 @@
       {
         "value"                                           "0.5 0.6 0.7 0.8 0.9 1.0"
       }
-      "AbilityManaCost"                                   "35 40 45 50 55 60" //OAA, intentionally nerfed
+      "AbilityManaCost"                                   "30 35 40 45 50 55" //OAA, intentionally nerfed; 7.42 vanilla 35 -> 30 re-applied (draft)
       "damage"
       {
         "value"                                           "40 80 120 160 200 240"

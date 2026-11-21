@@ -35,9 +35,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage" //OAA, intentionally buffed
+      "damage" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "100 175 250 400 550"
+        "value"                                           "100 165 225 350 500"
         "special_bonus_unique_jakiro_7"                   "+75"
       }
       "path_width"

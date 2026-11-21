@@ -35,10 +35,10 @@
         "value"                                           "800"
         "affected_by_aoe_increase"                        "1"
       }
-      "burst_damage" //OAA, intentionally buffed
+      "burst_damage" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "20 35 50 80 125"
-        "special_bonus_unique_largo_7"                    "+12"
+        "value"                                           "24 43 65 100 155"
+        "special_bonus_unique_largo_7"                    "+15"
       }
       "damage_per_stack"
       {

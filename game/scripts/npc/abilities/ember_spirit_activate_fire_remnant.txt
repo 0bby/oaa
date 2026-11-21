@@ -33,7 +33,7 @@
       "speed_multiplier"                                  "250"
       "max_charges"                                       "3"
       "charge_restore_time"                               "25.0" //OAA, intentionally buffed; Valve is missing special_bonus_unique_ember_spirit_5
-      "damage"                                            "100 250 400 700 1150" //OAA, intentionally buffed
+      "damage"                                            "100 230 360 650 1050" //OAA, intentionally buffed; 7.42 vanilla 100 200 300 -> 100 185 270 re-applied (draft)
       "radius"
       {
         "value"                                           "450"

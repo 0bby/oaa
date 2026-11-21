@@ -32,9 +32,9 @@
     "AbilityValues"
     {
       "damage_delay"                                      "0.25"
-      "damage" //OAA, intentionally buffed
+      "damage" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "400 760 1120 1840 2560"
+        "value"                                           "360 690 1020 1670 2320"
       }
       "AbilityCooldown" //OAA, intentionally buffed
       {

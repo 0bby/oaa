@@ -31,9 +31,9 @@
       {
         "value"                                           "0"
       }
-      "bonus_damage" //OAA, because of special_bonus_unique_beastmaster_2 buff
+      "bonus_damage" //OAA, because of special_bonus_unique_beastmaster_2 buff; 7.42 vanilla change re-applied (draft)
       {
-        "special_bonus_unique_beastmaster_2"              "+50"
+        "special_bonus_unique_beastmaster_2"              "+55"
       }
     }
   }

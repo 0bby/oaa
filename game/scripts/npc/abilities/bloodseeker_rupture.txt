@@ -33,9 +33,9 @@
     "AbilityValues"
     {
       "duration"                                          "7 9 11 13 15"
-      "movement_damage_pct" //OAA, intentionally buffed
+      "movement_damage_pct" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "35 55 75 115 155"
+        "value"                                           "45 60 75 115 155"
         "CalculateSpellDamageTooltip"                     "0"
       }
       "hp_pct"

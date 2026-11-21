@@ -62,7 +62,7 @@
     {
       "bonus_hp_regen"                                    "0"
       "bonus_armor"                                       "14 15 17 20 24" //OAA, intentionally nerfed; Plate Mail (10); Chain Mail (4);
-      "bonus_aoe"                                         "50 60 70 80 90" //OAA, intentionally nerfed
+      "bonus_aoe"                                         "35 45 55 65 75" //OAA, intentionally nerfed; 7.42 vanilla 75 -> 60 re-applied (draft)
       "aura_radius"
       {
         "value"                                           "1200"

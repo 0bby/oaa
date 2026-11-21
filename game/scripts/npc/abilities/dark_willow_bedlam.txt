@@ -35,9 +35,9 @@
       "attack_targets"                                    "1"
       "roaming_seconds_per_rotation"                      "1.5"
       "travel_speed"                                      "1800"
-      "attack_damage" //OAA, intentionally buffed
+      "attack_damage" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "70 170 270 470 770"
+        "value"                                           "70 160 240 410 680"
         "special_bonus_unique_dark_willow_4"              "+30"
       }
       "attack_radius"

@@ -40,10 +40,10 @@
         "affected_by_aoe_increase"                        "1"
       }
       "duration"                                          "2.0"
-      "damage" //OAA, intentionally buffed both base values and the talent
+      "damage" //OAA, intentionally buffed both base values and the talent; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "800 1400 2000 3200 4400"
-        "special_bonus_unique_skywrath_5"                 "+500"
+        "value"                                           "800 1300 1800 2900 4000"
+        "special_bonus_unique_skywrath_5"                 "+450"
       }
       "damage_interval"                                   "0.1"
       "scepter_radius"

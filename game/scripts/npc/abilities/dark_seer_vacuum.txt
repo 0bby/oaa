@@ -25,7 +25,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -35,9 +34,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA, intentionally buffed (flat at vanilla max level); moved here from the top level because 7.42 vanilla reads the cooldown from AbilityValues; vanilla max 30 -> 26 re-applied (draft)
       {
-        "value"                                           "50 42 34 26 18 10"
+        "value"                                           "26"
         "special_bonus_unique_dark_seer_2"                "-4"
       }
       "radius"

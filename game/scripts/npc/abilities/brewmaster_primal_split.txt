@@ -32,9 +32,9 @@
         "value"                                           "16 20 24 26 28 30"
       }
       "split_duration"                                    "0.6"
-      "tooltip_earth_brewling_hp" //OAA, intentionally buffed both base values and the talent
+      "tooltip_earth_brewling_hp" //OAA, intentionally buffed both base values and the talent; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "1400 3200 5000 6800 10400 15800"
+        "value"                                           "1400 3100 4700 6300 9600 14600"
         "special_bonus_unique_brewmaster"                 "+1000"
       }
       "tooltip_earth_brewling_damage"

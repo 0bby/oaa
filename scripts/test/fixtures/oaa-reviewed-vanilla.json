@@ -101,7 +101,7 @@
   },
   "ancient_apparition_chilling_touch|AbilityValues/AbilityManaCost": {
     "file": "abilities/ancient_apparition_chilling_touch.txt",
-    "vanilla": "35"
+    "vanilla": "30"
   },
   "ancient_apparition_chilling_touch|AbilityValues/attack_range_bonus": {
     "file": "abilities/ancient_apparition_chilling_touch.txt",
@@ -121,7 +121,7 @@
   },
   "ancient_apparition_ice_blast|AbilityDamage": {
     "file": "abilities/ancient_apparition_ice_blast.txt",
-    "vanilla": "250 325 400"
+    "vanilla": "200 300 400"
   },
   "ancient_apparition_ice_blast|AbilityManaCost": {
     "file": "abilities/ancient_apparition_ice_blast.txt",
@@ -137,7 +137,7 @@
   },
   "ancient_apparition_ice_vortex|AbilityValues/AbilityCooldown": {
     "file": "abilities/ancient_apparition_ice_vortex.txt",
-    "vanilla": "{\"special_bonus_unique_ancient_apparition_3\":\"-2\",\"value\":\"10 8 6 4\"}"
+    "vanilla": "10 8 6 4"
   },
   "ancient_apparition_ice_vortex|AbilityValues/vision_aoe": {
     "file": "abilities/ancient_apparition_ice_vortex.txt",
@@ -169,7 +169,7 @@
   },
   "arc_warden_runic_infusion|AbilityValues/all_attribute_bonus_per_stack": {
     "file": "abilities/arc_warden_runic_infusion.txt",
-    "vanilla": "{\"special_bonus_unique_arc_warden_8\":\"+1.0\",\"value\":\"1.5\"}"
+    "vanilla": "{\"special_bonus_unique_arc_warden_8\":\"+0.5\",\"value\":\"1.5\"}"
   },
   "arc_warden_spark_wraith|AbilityManaCost": {
     "file": "abilities/arc_warden_spark_wraith.txt",
@@ -209,7 +209,7 @@
   },
   "bane_brain_sap|AbilityValues/AbilityCooldown": {
     "file": "abilities/bane_brain_sap.txt",
-    "vanilla": "{\"special_bonus_shard\":\"-3\",\"value\":\"17 15 13 11\"}"
+    "vanilla": "{\"special_bonus_shard\":\"-4\",\"value\":\"17 15 13 11\"}"
   },
   "bane_enfeeble|AbilityCooldown": {
     "file": "abilities/bane_enfeeble.txt",
@@ -221,7 +221,7 @@
   },
   "bane_fiends_grip|AbilityValues/AbilityCooldown": {
     "file": "abilities/bane_fiends_grip.txt",
-    "vanilla": "{\"special_bonus_scepter\":\"-40\",\"value\":\"120 110 100\"}"
+    "vanilla": "{\"special_bonus_scepter\":\"-35\",\"value\":\"125 110 95\"}"
   },
   "bane_fiends_grip|AbilityValues/fiend_grip_damage": {
     "file": "abilities/bane_fiends_grip.txt",
@@ -265,7 +265,7 @@
   },
   "beastmaster_inner_beast|AbilityValues/bonus_damage": {
     "file": "abilities/beastmaster_inner_beast.txt",
-    "vanilla": "{\"special_bonus_unique_beastmaster_2\":\"+25\"}"
+    "vanilla": "{\"special_bonus_unique_beastmaster_2\":\"+30\"}"
   },
   "beastmaster_primal_roar|AbilityValues/AbilityCooldown": {
     "file": "abilities/beastmaster_primal_roar.txt",
@@ -297,7 +297,7 @@
   },
   "beastmaster_summon_raptor|AbilityValues/dive_damage": {
     "file": "abilities/beastmaster_summon_raptor.txt",
-    "vanilla": "{\"special_bonus_unique_beastmaster_2\":\"+25\",\"value\":\"60 95 130 165\"}"
+    "vanilla": "{\"special_bonus_unique_beastmaster_2\":\"+30\",\"value\":\"70 110 150 190\"}"
   },
   "beastmaster_summon_raptor|AbilityValues/duration": {
     "file": "abilities/beastmaster_summon_raptor.txt",
@@ -353,7 +353,7 @@
   },
   "bloodseeker_rupture|AbilityValues/movement_damage_pct": {
     "file": "abilities/bloodseeker_rupture.txt",
-    "vanilla": "{\"CalculateSpellDamageTooltip\":\"0\",\"value\":\"35 45 55\"}"
+    "vanilla": "{\"CalculateSpellDamageTooltip\":\"0\",\"value\":\"45 50 55\"}"
   },
   "boss_fury_swipes|AbilityValues/bonus_reset_time": {
     "file": "abilities/boss/bear_boss/boss_fury_swipes.txt",
@@ -421,7 +421,7 @@
   },
   "bounty_hunter_shuriken_toss|AbilityValues/bonus_damage": {
     "file": "abilities/bounty_hunter_shuriken_toss.txt",
-    "vanilla": "{\"special_bonus_unique_bounty_hunter_2\":\"+190\",\"value\":\"100 170 240 310\"}"
+    "vanilla": "{\"special_bonus_unique_bounty_hunter_2\":\"+160\",\"value\":\"100 170 240 310\"}"
   },
   "bounty_hunter_shuriken_toss|AbilityValues/cast_range": {
     "file": "abilities/bounty_hunter_shuriken_toss.txt",
@@ -497,7 +497,7 @@
   },
   "brewmaster_primal_split|AbilityValues/tooltip_earth_brewling_hp": {
     "file": "abilities/brewmaster_primal_split.txt",
-    "vanilla": "{\"special_bonus_unique_brewmaster\":\"+600\",\"value\":\"1400 2300 3200 4100\"}"
+    "vanilla": "{\"special_bonus_unique_brewmaster\":\"+600\",\"value\":\"1400 2200 3000 3800\"}"
   },
   "brewmaster_primal_split|AbilityValues/tooltip_fire_brewling_hp": {
     "file": "abilities/brewmaster_primal_split.txt",
@@ -569,7 +569,7 @@
   },
   "broodmother_incapacitating_bite|AbilityValues/bonus_movespeed": {
     "file": "abilities/broodmother_incapacitating_bite.txt",
-    "vanilla": "{\"special_bonus_unique_broodmother_4\":\"-25\",\"value\":\"-15 -20 -25 -30\"}"
+    "vanilla": "{\"special_bonus_unique_broodmother_4\":\"-15\",\"value\":\"-15 -20 -25 -30\"}"
   },
   "broodmother_insatiable_hunger|AbilityCooldown": {
     "file": "abilities/broodmother_insatiable_hunger.txt",
@@ -617,7 +617,7 @@
   },
   "centaur_stampede|AbilityValues/strength_damage": {
     "file": "abilities/centaur_stampede.txt",
-    "vanilla": "{\"CalculateSpellDamageTooltip\":\"1\",\"value\":\"2 2.5 3\"}"
+    "vanilla": "{\"CalculateSpellDamageTooltip\":\"1\",\"value\":\"2.0 2.25 2.5\"}"
   },
   "chaos_knight_phantasm|AbilityValues/illusion_duration": {
     "file": "abilities/chaos_knight_phantasm.txt",
@@ -693,7 +693,7 @@
   },
   "clinkz_strafe|AbilityValues/AbilityCooldown": {
     "file": "abilities/clinkz_strafe.txt",
-    "vanilla": "{\"special_bonus_unique_clinkz_4\":\"-9\",\"value\":\"30 25 20 15\"}"
+    "vanilla": "{\"special_bonus_unique_clinkz_4\":\"-9\",\"value\":\"24 21 18 15\"}"
   },
   "clinkz_strafe|AbilityValues/attack_speed_bonus": {
     "file": "abilities/clinkz_strafe.txt",
@@ -721,7 +721,7 @@
   },
   "crystal_maiden_freezing_field|AbilityValues/damage": {
     "file": "abilities/crystal_maiden_freezing_field.txt",
-    "vanilla": "{\"special_bonus_unique_crystal_maiden_3\":\"+50\",\"value\":\"110 180 250\"}"
+    "vanilla": "{\"special_bonus_unique_crystal_maiden_3\":\"+45\",\"value\":\"130 190 250\"}"
   },
   "crystal_maiden_freezing_field|AbilityValues/explosion_max_dist": {
     "file": "abilities/crystal_maiden_freezing_field.txt",
@@ -787,6 +787,10 @@
     "file": "abilities/dark_seer_vacuum.txt",
     "vanilla": null
   },
+  "dark_seer_vacuum|AbilityValues/AbilityCooldown": {
+    "file": "abilities/dark_seer_vacuum.txt",
+    "vanilla": "{\"special_bonus_unique_dark_seer_2\":\"-4\",\"value\":\"50 42 34 26\"}"
+  },
   "dark_seer_vacuum|AbilityValues/damage": {
     "file": "abilities/dark_seer_vacuum.txt",
     "vanilla": "70 130 190 250"
@@ -813,7 +817,7 @@
   },
   "dark_willow_bedlam|AbilityValues/attack_damage": {
     "file": "abilities/dark_willow_bedlam.txt",
-    "vanilla": "{\"special_bonus_unique_dark_willow_4\":\"+30\",\"value\":\"70 120 170\"}"
+    "vanilla": "{\"special_bonus_unique_dark_willow_4\":\"+30\",\"value\":\"70 110 150\"}"
   },
   "dark_willow_bramble_maze|AbilityValues/placement_duration": {
     "file": "abilities/dark_willow_bramble_maze.txt",
@@ -863,6 +867,10 @@
     "file": "abilities/dazzle_nothl_projection.txt",
     "vanilla": "70 60 50"
   },
+  "dazzle_nothl_projection|AbilityValues/AbilityCooldown": {
+    "file": "abilities/dazzle_nothl_projection.txt",
+    "vanilla": "{\"special_bonus_unique_dazzle_nothl_projection_cooldown\":\"-15\",\"value\":\"70 60 50\"}"
+  },
   "dazzle_nothl_projection|AbilityValues/poison_touch_hex": {
     "file": "abilities/dazzle_nothl_projection.txt",
     "vanilla": "1.4 1.6 1.8"
@@ -897,7 +905,7 @@
   },
   "death_prophet_exorcism|AbilityCooldown": {
     "file": "abilities/death_prophet_exorcism.txt",
-    "vanilla": "150.0"
+    "vanilla": "145 135 125"
   },
   "death_prophet_exorcism|AbilityValues/average_damage": {
     "file": "abilities/death_prophet_exorcism.txt",
@@ -929,7 +937,7 @@
   },
   "death_prophet_spirit_siphon|AbilityValues/AbilityChargeRestoreTime": {
     "file": "abilities/death_prophet_spirit_siphon.txt",
-    "vanilla": "{\"special_bonus_unique_death_prophet_5\":\"-22\",\"value\":\"40\"}"
+    "vanilla": "{\"special_bonus_unique_death_prophet_5\":\"-8\",\"value\":\"35\"}"
   },
   "disruptor_glimpse|AbilityValues/AbilityCooldown": {
     "file": "abilities/disruptor_glimpse.txt",
@@ -941,7 +949,7 @@
   },
   "disruptor_kinetic_fence|AbilityValues/AbilityCooldown": {
     "file": "abilities/disruptor_kinetic_fence.txt",
-    "vanilla": "{\"special_bonus_unique_disruptor_2\":\"-3\",\"value\":\"14\"}"
+    "vanilla": "{\"special_bonus_unique_disruptor_2\":\"-3\",\"value\":\"12\"}"
   },
   "disruptor_kinetic_field|AbilityManaCost": {
     "file": "abilities/disruptor_kinetic_field.txt",
@@ -997,7 +1005,7 @@
   },
   "doom_bringer_scorched_earth|AbilityValues/AbilityCooldown": {
     "file": "abilities/doom_bringer_scorched_earth.txt",
-    "vanilla": "{\"special_bonus_unique_doom_11\":\"=2.5\",\"value\":\"41 39 37 35\"}"
+    "vanilla": "{\"special_bonus_unique_doom_11\":\"=2.5\",\"value\":\"45 42 39 36\"}"
   },
   "dragon_knight_dragon_blood|AbilityBehavior": {
     "file": "abilities/dragon_knight_dragon_blood.txt",
@@ -1045,7 +1053,7 @@
   },
   "dragon_knight_wyrms_wrath|AbilityValues/bonus_aoe": {
     "file": "abilities/dragon_knight_wyrms_wrath.txt",
-    "vanilla": "{\"special_bonus_unique_dragon_knight_wyrms_wrath_damage\":\"+50%\",\"value\":\"30 60 90 120\"}"
+    "vanilla": "{\"special_bonus_unique_dragon_knight_wyrms_wrath_damage\":\"+50%\",\"value\":\"40 60 80 100\"}"
   },
   "drow_ranger_frost_arrows|AbilityValues/AbilityManaCost": {
     "file": "abilities/drow_ranger_frost_arrows.txt",
@@ -1053,23 +1061,23 @@
   },
   "drow_ranger_frost_arrows|AbilityValues/shard_bonus_damage_per_stack": {
     "file": "abilities/drow_ranger_frost_arrows.txt",
-    "vanilla": "{\"special_bonus_scepter\":\"+18\"}"
+    "vanilla": "{\"special_bonus_scepter\":\"+22\"}"
   },
   "drow_ranger_frost_arrows|AbilityValues/shard_burst_damage_per_stack": {
     "file": "abilities/drow_ranger_frost_arrows.txt",
-    "vanilla": "{\"DamageTypeTooltip\":\"DAMAGE_TYPE_MAGICAL\",\"special_bonus_scepter\":\"+60\"}"
+    "vanilla": "{\"DamageTypeTooltip\":\"DAMAGE_TYPE_MAGICAL\",\"special_bonus_scepter\":\"+70\"}"
   },
   "drow_ranger_frost_arrows|AbilityValues/shard_max_stacks": {
     "file": "abilities/drow_ranger_frost_arrows.txt",
-    "vanilla": "{\"special_bonus_scepter\":\"+9\"}"
+    "vanilla": "{\"special_bonus_scepter\":\"+7\"}"
   },
   "drow_ranger_frost_arrows|AbilityValues/shard_regen_reduction_pct_per_stack": {
     "file": "abilities/drow_ranger_frost_arrows.txt",
-    "vanilla": "{\"special_bonus_scepter\":\"+10\"}"
+    "vanilla": "{\"special_bonus_scepter\":\"+13\"}"
   },
   "drow_ranger_marksmanship|AbilityValues/bonus_damage": {
     "file": "abilities/drow_ranger_marksmanship.txt",
-    "vanilla": "50 70 90"
+    "vanilla": "60 75 90"
   },
   "drow_ranger_marksmanship|AbilityValues/chance": {
     "file": "abilities/drow_ranger_marksmanship.txt",
@@ -1085,7 +1093,7 @@
   },
   "drow_ranger_wave_of_silence|AbilityValues/AbilityCooldown": {
     "file": "abilities/drow_ranger_wave_of_silence.txt",
-    "vanilla": "{\"value\":\"19 17 15 13\"}"
+    "vanilla": "{\"value\":\"18 16 14 12\"}"
   },
   "drow_ranger_wave_of_silence|AbilityValues/AbilityManaCost": {
     "file": "abilities/drow_ranger_wave_of_silence.txt",
@@ -1109,7 +1117,7 @@
   },
   "earth_spirit_magnetize|AbilityValues/damage_per_second": {
     "file": "abilities/earth_spirit_magnetize.txt",
-    "vanilla": "{\"special_bonus_unique_earth_spirit_8\":\"+35\",\"value\":\"45 90 135\"}"
+    "vanilla": "{\"special_bonus_unique_earth_spirit_8\":\"+35\",\"value\":\"40 80 120\"}"
   },
   "earth_spirit_petrify|AbilityBehavior": {
     "file": "abilities/earth_spirit_petrify.txt",
@@ -1141,7 +1149,7 @@
   },
   "earthshaker_echo_slam|AbilityValues/AbilityCooldown": {
     "file": "abilities/earthshaker_echo_slam.txt",
-    "vanilla": "{\"special_bonus_unique_earthshaker_echo_cd\":\"-50%\",\"value\":\"130.0 120.0 110.0\"}"
+    "vanilla": "{\"special_bonus_unique_earthshaker_echo_cd\":\"-50%\",\"value\":\"125 115 105\"}"
   },
   "earthshaker_echo_slam|AbilityValues/echo_slam_damage_range": {
     "file": "abilities/earthshaker_echo_slam.txt",
@@ -1149,7 +1157,7 @@
   },
   "earthshaker_echo_slam|AbilityValues/echo_slam_echo_damage": {
     "file": "abilities/earthshaker_echo_slam.txt",
-    "vanilla": "{\"special_bonus_unique_earthshaker_2\":\"+50\",\"value\":\"70 90 110\"}"
+    "vanilla": "{\"special_bonus_unique_earthshaker_2\":\"+45\",\"value\":\"60 80 100\"}"
   },
   "earthshaker_echo_slam|AbilityValues/echo_slam_echo_range": {
     "file": "abilities/earthshaker_echo_slam.txt",
@@ -1201,7 +1209,7 @@
   },
   "elder_titan_echo_stomp_spirit|AbilityValues/stomp_damage": {
     "file": "abilities/elder_titan_echo_stomp_spirit.txt",
-    "vanilla": "{\"DamageTypeTooltip\":\"DAMAGE_TYPE_NONE\",\"special_bonus_unique_elder_titan_2\":\"+75\",\"value\":\"60 100 140 180\"}"
+    "vanilla": "{\"DamageTypeTooltip\":\"DAMAGE_TYPE_NONE\",\"special_bonus_unique_elder_titan_2\":\"+65\",\"value\":\"60 100 140 180\"}"
   },
   "elder_titan_echo_stomp|AbilityCastPoint": {
     "file": "abilities/elder_titan_echo_stomp.txt",
@@ -1221,7 +1229,7 @@
   },
   "elder_titan_echo_stomp|AbilityValues/stomp_damage": {
     "file": "abilities/elder_titan_echo_stomp.txt",
-    "vanilla": "{\"DamageTypeTooltip\":\"DAMAGE_TYPE_NONE\",\"special_bonus_unique_elder_titan_2\":\"+75\",\"value\":\"65 110 155 200\"}"
+    "vanilla": "{\"DamageTypeTooltip\":\"DAMAGE_TYPE_NONE\",\"special_bonus_unique_elder_titan_2\":\"+65\",\"value\":\"65 110 155 200\"}"
   },
   "elder_titan_natural_order_spirit|AbilityValues/armor_reduction_pct": {
     "file": "abilities/elder_titan_natural_order_spirit.txt",
@@ -1249,7 +1257,7 @@
   },
   "ember_spirit_activate_fire_remnant|AbilityValues/damage": {
     "file": "abilities/ember_spirit_activate_fire_remnant.txt",
-    "vanilla": "100 200 300"
+    "vanilla": "100 185 270"
   },
   "ember_spirit_fire_remnant|AbilityCooldown": {
     "file": "abilities/ember_spirit_fire_remnant.txt",
@@ -1261,7 +1269,7 @@
   },
   "ember_spirit_fire_remnant|AbilityValues/damage": {
     "file": "abilities/ember_spirit_fire_remnant.txt",
-    "vanilla": "{\"CalculateSpellDamageTooltip\":\"1\",\"value\":\"100 200 300\"}"
+    "vanilla": "{\"CalculateSpellDamageTooltip\":\"1\",\"value\":\"100 185 270\"}"
   },
   "ember_spirit_flame_guard|AbilityCastRange": {
     "file": "abilities/ember_spirit_flame_guard.txt",
@@ -1277,7 +1285,7 @@
   },
   "ember_spirit_flame_guard|AbilityValues/duration": {
     "file": "abilities/ember_spirit_flame_guard.txt",
-    "vanilla": "12 14 16 18"
+    "vanilla": "9 12 15 18"
   },
   "ember_spirit_immolation|AbilityValues/damage": {
     "file": "abilities/ember_spirit_immolation.txt",
@@ -1289,11 +1297,11 @@
   },
   "ember_spirit_sleight_of_fist|AbilityManaCost": {
     "file": "abilities/ember_spirit_sleight_of_fist.txt",
-    "vanilla": "75"
+    "vanilla": "60"
   },
   "ember_spirit_sleight_of_fist|AbilityValues/bonus_hero_damage": {
     "file": "abilities/ember_spirit_sleight_of_fist.txt",
-    "vanilla": "{\"CalculateSpellDamageTooltip\":\"0\",\"special_bonus_unique_ember_spirit_6\":\"+50\",\"value\":\"40 80 120 160\"}"
+    "vanilla": "{\"CalculateSpellDamageTooltip\":\"0\",\"special_bonus_unique_ember_spirit_6\":\"+45\",\"value\":\"40 80 120 160\"}"
   },
   "enchantress_enchant|AbilityCooldown": {
     "file": "abilities/enchantress_enchant.txt",
@@ -1301,7 +1309,7 @@
   },
   "enchantress_enchant|AbilityValues/dominate_duration": {
     "file": "abilities/enchantress_enchant.txt",
-    "vanilla": "30 60 90 120"
+    "vanilla": "45 70 95 120"
   },
   "enchantress_enchant|AbilityValues/enchant_damage": {
     "file": "abilities/enchantress_enchant.txt",
@@ -1341,7 +1349,7 @@
   },
   "enigma_demonic_conversion|AbilityValues/eidelon_base_damage": {
     "file": "abilities/enigma_demonic_conversion.txt",
-    "vanilla": "16 28 40 52"
+    "vanilla": "15 27 39 51"
   },
   "enigma_demonic_conversion|AbilityValues/eidelon_base_movespeed": {
     "file": "abilities/enigma_demonic_conversion.txt",
@@ -1417,7 +1425,7 @@
   },
   "faceless_void_time_dilation|AbilityCooldown": {
     "file": "abilities/faceless_void_time_dilation.txt",
-    "vanilla": "28 24 20 16"
+    "vanilla": "24 21 18 15"
   },
   "faceless_void_time_dilation|AbilityManaCost": {
     "file": "abilities/faceless_void_time_dilation.txt",
@@ -1481,7 +1489,7 @@
   },
   "furion_force_of_nature|AbilityValues/treant_health": {
     "file": "abilities/furion_force_of_nature.txt",
-    "vanilla": "{\"special_bonus_unique_furion\":\"x3\",\"value\":\"450\"}"
+    "vanilla": "{\"special_bonus_unique_furion\":\"x3\",\"value\":\"425 450 475 500\"}"
   },
   "furion_sprout|AbilityUnitTargetFlags": {
     "file": "abilities/furion_sprout.txt",
@@ -1493,11 +1501,11 @@
   },
   "furion_teleportation|AbilityValues/AbilityCooldown": {
     "file": "abilities/furion_teleportation.txt",
-    "vanilla": "{\"special_bonus_unique_furion_3\":\"-100%\",\"value\":\"65 50 35 20\"}"
+    "vanilla": "{\"special_bonus_unique_furion_3\":\"-100%\",\"value\":\"80 60 40 20\"}"
   },
   "furion_teleportation|AbilityValues/barrier": {
     "file": "abilities/furion_teleportation.txt",
-    "vanilla": "{\"special_bonus_unique_furion_teleportation_barrier\":\"+100\",\"value\":\"70 130 190 250\"}"
+    "vanilla": "{\"special_bonus_unique_furion_teleportation_barrier\":\"0\",\"value\":\"0\"}"
   },
   "furion_wrath_of_nature|AbilityValues/damage": {
     "file": "abilities/furion_wrath_of_nature.txt",
@@ -1517,15 +1525,15 @@
   },
   "grimstroke_dark_artistry|AbilityValues/bonus_damage_per_creep": {
     "file": "abilities/grimstroke_dark_artistry.txt",
-    "vanilla": "{\"special_bonus_unique_grimstroke_2\":\"+80%\",\"value\":\"10 20 30 40\"}"
+    "vanilla": "{\"special_bonus_unique_grimstroke_2\":\"+70%\",\"value\":\"10 20 30 40\"}"
   },
   "grimstroke_dark_artistry|AbilityValues/bonus_damage_per_hero": {
     "file": "abilities/grimstroke_dark_artistry.txt",
-    "vanilla": "{\"special_bonus_unique_grimstroke_2\":\"+80%\",\"value\":\"20 40 60 80\"}"
+    "vanilla": "{\"special_bonus_unique_grimstroke_2\":\"+70%\",\"value\":\"20 40 60 80\"}"
   },
   "grimstroke_dark_artistry|AbilityValues/damage": {
     "file": "abilities/grimstroke_dark_artistry.txt",
-    "vanilla": "{\"special_bonus_unique_grimstroke_2\":\"+80%\",\"value\":\"100 160 220 280\"}"
+    "vanilla": "{\"special_bonus_unique_grimstroke_2\":\"+70%\",\"value\":\"100 160 220 280\"}"
   },
   "grimstroke_ink_creature|AbilityCooldown": {
     "file": "abilities/grimstroke_ink_creature.txt",
@@ -1541,7 +1549,7 @@
   },
   "gyrocopter_call_down|AbilityValues/AbilityCooldown": {
     "file": "abilities/gyrocopter_call_down.txt",
-    "vanilla": "{\"special_bonus_unique_gyrocopter_5\":\"-40\",\"value\":\"75 65 55\"}"
+    "vanilla": "{\"special_bonus_unique_gyrocopter_5\":\"-10\",\"value\":\"75 65 55\"}"
   },
   "gyrocopter_call_down|AbilityValues/damage": {
     "file": "abilities/gyrocopter_call_down.txt",
@@ -1605,7 +1613,7 @@
   },
   "hoodwink_sharpshooter|AbilityValues/max_damage": {
     "file": "abilities/hoodwink_sharpshooter.txt",
-    "vanilla": "{\"special_bonus_facet_hoodwink_hipshot\":\"x0.75\",\"special_bonus_unique_hoodwink_sharpshooter_damage\":\"+400\",\"value\":\"600 975 1350\"}"
+    "vanilla": "{\"special_bonus_facet_hoodwink_hipshot\":\"x0.75\",\"special_bonus_unique_hoodwink_sharpshooter_damage\":\"+350\",\"value\":\"550 875 1200\"}"
   },
   "huskar_inner_fire|AbilityUnitTargetTeam": {
     "file": "abilities/huskar_inner_fire.txt",
@@ -1645,7 +1653,7 @@
   },
   "invoker_chaos_meteor|AbilityValues/burn_dps": {
     "file": "abilities/invoker_chaos_meteor.txt",
-    "vanilla": "{\"CalculateSpellDamageTooltip\":\"1\",\"DamageTypeTooltip\":\"DAMAGE_TYPE_MAGICAL\",\"levelkey\":\"exortlevel\",\"value\":\"10 15 20 25 30 35 40 45 50\"}"
+    "vanilla": "{\"CalculateSpellDamageTooltip\":\"1\",\"DamageTypeTooltip\":\"DAMAGE_TYPE_MAGICAL\",\"levelkey\":\"exortlevel\",\"value\":\"12 16 20 24 28 32 36 40 44\"}"
   },
   "invoker_chaos_meteor|AbilityValues/main_damage": {
     "file": "abilities/invoker_chaos_meteor.txt",
@@ -1705,7 +1713,7 @@
   },
   "invoker_ice_wall|AbilityValues/damage_per_second": {
     "file": "abilities/invoker_ice_wall.txt",
-    "vanilla": "{\"levelkey\":\"exortlevel\",\"special_bonus_unique_invoker_ice_wall_dps\":\"+50\",\"value\":\"30 36 42 48 54 60 66 72 78\"}"
+    "vanilla": "{\"levelkey\":\"exortlevel\",\"special_bonus_unique_invoker_ice_wall_dps\":\"+40\",\"value\":\"30 36 42 48 54 60 66 72 78\"}"
   },
   "invoker_ice_wall|AbilityValues/root_damage": {
     "file": "abilities/invoker_ice_wall.txt",
@@ -1733,7 +1741,7 @@
   },
   "invoker_sun_strike|AbilityValues/damage": {
     "file": "abilities/invoker_sun_strike.txt",
-    "vanilla": "{\"levelkey\":\"exortlevel\",\"value\":\"175 225 275 325 375 425 475 525 575\"}"
+    "vanilla": "{\"levelkey\":\"exortlevel\",\"value\":\"175 215 255 295 335 375 415 455 495\"}"
   },
   "invoker_tornado|AbilityValues/AbilityCooldown": {
     "file": "abilities/invoker_tornado.txt",
@@ -1761,7 +1769,7 @@
   },
   "item_abyssal_blade|AbilityCastRange": {
     "file": "items/item_abyssal_blade.txt",
-    "vanilla": "150"
+    "vanilla": "175"
   },
   "item_abyssal_blade|AbilityValues/bonus_chance_damage": {
     "file": "items/item_abyssal_blade.txt",
@@ -1813,7 +1821,7 @@
   },
   "item_blade_mail|ItemCost": {
     "file": "items/item_blade_mail.txt",
-    "vanilla": "2400"
+    "vanilla": "2350"
   },
   "item_bloodthorn|AbilityValues/bonus_intellect": {
     "file": "items/item_bloodthorn.txt",
@@ -1865,7 +1873,7 @@
   },
   "item_crimson_guard|AbilityValues/bonus_armor": {
     "file": "items/item_crimson_guard.txt",
-    "vanilla": "6"
+    "vanilla": "5"
   },
   "item_demon_edge|SecretShop": {
     "file": "items/basic/item_demon_edge.txt",
@@ -1997,11 +2005,11 @@
   },
   "item_gungir|AbilityValues/bonus_aoe": {
     "file": "items/item_gungir.txt",
-    "vanilla": "75"
+    "vanilla": "60"
   },
   "item_gungir|AbilityValues/radius": {
     "file": "items/item_gungir.txt",
-    "vanilla": "{\"affected_by_aoe_increase\":\"1\",\"value\":\"325\"}"
+    "vanilla": "{\"affected_by_aoe_increase\":\"1\",\"value\":\"340\"}"
   },
   "item_harpoon|AbilityValues/bonus_damage": {
     "file": "items/item_harpoon.txt",
@@ -2205,7 +2213,7 @@
   },
   "item_pipe|AbilityCooldown": {
     "file": "items/item_pipe.txt",
-    "vanilla": "60.0"
+    "vanilla": "50.0"
   },
   "item_pipe|AbilityValues/add_nostack_debuff": {
     "file": "items/item_pipe.txt",
@@ -2221,7 +2229,7 @@
   },
   "item_pipe|SpellDispellableType": {
     "file": "items/item_pipe.txt",
-    "vanilla": null
+    "vanilla": "SPELL_DISPELLABLE_YES"
   },
   "item_platemail|SecretShop": {
     "file": "items/basic/item_platemail.txt",
@@ -2277,7 +2285,7 @@
   },
   "item_recipe_blade_mail|ItemCost": {
     "file": "items/item_blade_mail.txt",
-    "vanilla": "450"
+    "vanilla": "400"
   },
   "item_recipe_bloodthorn|ItemRequirements": {
     "file": "items/item_bloodthorn.txt",
@@ -2457,11 +2465,11 @@
   },
   "item_sange_and_yasha|AbilityValues/movement_speed_percent_bonus": {
     "file": "items/item_sange_and_yasha.txt",
-    "vanilla": "12"
+    "vanilla": "10"
   },
   "item_sange_and_yasha|AbilityValues/movement_speed_percent_bonus_melee": {
     "file": "items/item_sange_and_yasha.txt",
-    "vanilla": "12"
+    "vanilla": "10"
   },
   "item_sange_and_yasha|AbilityValues/slow_resistance": {
     "file": "items/item_sange_and_yasha.txt",
@@ -2501,7 +2509,7 @@
   },
   "item_shivas_guard|AbilityValues/bonus_aoe": {
     "file": "items/item_shivas_guard.txt",
-    "vanilla": "75"
+    "vanilla": "60"
   },
   "item_shivas_guard|AbilityValues/bonus_armor": {
     "file": "items/item_shivas_guard.txt",
@@ -2665,7 +2673,7 @@
   },
   "jakiro_double_trouble|AbilityValues/attack_damage_reduction": {
     "file": "abilities/jakiro_double_trouble.txt",
-    "vanilla": "{\"hero_levelup\":\"-1.0\",\"value\":\"51\"}"
+    "vanilla": "{\"hero_levelup\":\"-1.0\",\"value\":\"50\"}"
   },
   "jakiro_dual_breath|AbilityManaCost": {
     "file": "abilities/jakiro_dual_breath.txt",
@@ -2697,7 +2705,7 @@
   },
   "jakiro_macropyre|AbilityValues/damage": {
     "file": "abilities/jakiro_macropyre.txt",
-    "vanilla": "{\"special_bonus_unique_jakiro_7\":\"+25\",\"value\":\"100 150 200\"}"
+    "vanilla": "{\"special_bonus_unique_jakiro_7\":\"+25\",\"value\":\"100 140 180\"}"
   },
   "juggernaut_blade_fury|AbilityUnitTargetTeam": {
     "file": "abilities/juggernaut_blade_fury.txt",
@@ -2753,7 +2761,7 @@
   },
   "keeper_of_the_light_illuminate|AbilityValues/total_damage": {
     "file": "abilities/keeper_of_the_light_illuminate.txt",
-    "vanilla": "{\"special_bonus_unique_keeper_of_the_light\":\"+200\",\"value\":\"185 290 395 500\"}"
+    "vanilla": "{\"special_bonus_unique_keeper_of_the_light\":\"+175\",\"value\":\"185 290 395 500\"}"
   },
   "keeper_of_the_light_radiant_bind|AbilityBehavior": {
     "file": "abilities/keeper_of_the_light_radiant_bind.txt",
@@ -2761,7 +2769,7 @@
   },
   "keeper_of_the_light_radiant_bind|AbilityValues/magic_resistance": {
     "file": "abilities/keeper_of_the_light_radiant_bind.txt",
-    "vanilla": "{\"special_bonus_unique_keeper_of_the_light_3\":\"+10\",\"value\":\"20 30 40\"}"
+    "vanilla": "{\"special_bonus_unique_keeper_of_the_light_3\":\"+8\",\"value\":\"16 24 32\"}"
   },
   "keeper_of_the_light_spirit_form|AbilityValues/duration": {
     "file": "abilities/keeper_of_the_light_spirit_form.txt",
@@ -2833,7 +2841,7 @@
   },
   "kunkka_ghostship|AbilityDamage": {
     "file": "abilities/kunkka_ghostship.txt",
-    "vanilla": "350 475 600"
+    "vanilla": "350 450 550"
   },
   "kunkka_ghostship|AbilityValues/AbilityCooldown": {
     "file": "abilities/kunkka_ghostship.txt",
@@ -2877,7 +2885,7 @@
   },
   "largo_song_fight_song|AbilityValues/burst_damage": {
     "file": "abilities/largo_song_fight_song.txt",
-    "vanilla": "{\"special_bonus_unique_largo_7\":\"+12\",\"value\":\"20 30 40\"}"
+    "vanilla": "{\"special_bonus_unique_largo_7\":\"+15\",\"value\":\"24 37 50\"}"
   },
   "legion_commander_duel|AbilityManaCost": {
     "file": "abilities/legion_commander_duel.txt",
@@ -2921,7 +2929,7 @@
   },
   "leshrac_defilement|AbilityValues/aoe_per_int": {
     "file": "abilities/leshrac_defilement.txt",
-    "vanilla": "0.7"
+    "vanilla": "0.6"
   },
   "leshrac_pulse_nova|AbilityManaCost": {
     "file": "abilities/leshrac_pulse_nova.txt",
@@ -2929,7 +2937,7 @@
   },
   "leshrac_pulse_nova|AbilityValues/damage": {
     "file": "abilities/leshrac_pulse_nova.txt",
-    "vanilla": "{\"special_bonus_unique_leshrac_3\":\"+30\",\"value\":\"80 135 180\"}"
+    "vanilla": "{\"special_bonus_unique_leshrac_3\":\"+30\",\"value\":\"80 130 180\"}"
   },
   "leshrac_pulse_nova|AbilityValues/mana_cost_per_second": {
     "file": "abilities/leshrac_pulse_nova.txt",
@@ -2941,7 +2949,7 @@
   },
   "lich_chain_frost|AbilityValues/damage": {
     "file": "abilities/lich_chain_frost.txt",
-    "vanilla": "{\"value\":\"250 400 550\"}"
+    "vanilla": "{\"value\":\"250 375 500\"}"
   },
   "lich_chain_frost|AbilityValues/slow_attack_speed": {
     "file": "abilities/lich_chain_frost.txt",
@@ -3025,7 +3033,7 @@
   },
   "lina_fiery_soul|AbilityValues/fiery_soul_magic_resist": {
     "file": "abilities/lina_fiery_soul.txt",
-    "vanilla": "{\"special_bonus_unique_lina_4\":\"+5\"}"
+    "vanilla": null
   },
   "lina_laguna_blade|AbilityValues/AbilityCooldown": {
     "file": "abilities/lina_laguna_blade.txt",
@@ -3033,7 +3041,7 @@
   },
   "lina_laguna_blade|AbilityValues/damage": {
     "file": "abilities/lina_laguna_blade.txt",
-    "vanilla": "{\"value\":\"400 580 760\"}"
+    "vanilla": "{\"value\":\"360 525 690\"}"
   },
   "lina_laguna_blade|AbilityValues/supercharge_stacks": {
     "file": "abilities/lina_laguna_blade.txt",
@@ -3045,11 +3053,11 @@
   },
   "lion_finger_of_death|AbilityValues/damage": {
     "file": "abilities/lion_finger_of_death.txt",
-    "vanilla": "{\"special_bonus_scepter\":\"+100\",\"value\":\"600 725 850\"}"
+    "vanilla": "{\"special_bonus_scepter\":\"+100\",\"value\":\"570 685 800\"}"
   },
   "lion_finger_of_death|AbilityValues/damage_per_kill": {
     "file": "abilities/lion_finger_of_death.txt",
-    "vanilla": "{\"CalculateSpellDamageTooltip\":\"0\",\"special_bonus_unique_lion_8\":\"+20\",\"value\":\"25\"}"
+    "vanilla": "{\"CalculateSpellDamageTooltip\":\"0\",\"special_bonus_unique_lion_8\":\"+20\",\"value\":\"20\"}"
   },
   "lion_impale|AbilityValues/AbilityCastRange": {
     "file": "abilities/lion_impale.txt",
@@ -3229,7 +3237,7 @@
   },
   "lycan_summon_wolves|AbilityValues/wolf_damage": {
     "file": "abilities/lycan_summon_wolves.txt",
-    "vanilla": "{\"CalculateSpellDamageTooltip\":\"0\",\"DamageTypeTooltip\":\"DAMAGE_TYPE_PHYSICAL\",\"special_bonus_unique_lycan_3\":\"+14\",\"value\":\"22 28 34 40 46 52\"}"
+    "vanilla": "{\"CalculateSpellDamageTooltip\":\"0\",\"DamageTypeTooltip\":\"DAMAGE_TYPE_PHYSICAL\",\"special_bonus_unique_lycan_3\":\"+14\",\"value\":\"22 32 42 52 62 72\"}"
   },
   "lycan_summon_wolves|AbilityValues/wolf_hp": {
     "file": "abilities/lycan_summon_wolves.txt",
@@ -3241,7 +3249,7 @@
   },
   "lycan_wolf_bite|AbilityValues/lifesteal_percent": {
     "file": "abilities/lycan_wolf_bite.txt",
-    "vanilla": "40"
+    "vanilla": null
   },
   "magnataur_empower|AbilityManaCost": {
     "file": "abilities/magnataur_empower.txt",
@@ -3285,7 +3293,7 @@
   },
   "magnataur_shockwave|AbilityValues/shock_damage": {
     "file": "abilities/magnataur_shockwave.txt",
-    "vanilla": "{\"special_bonus_unique_magnus\":\"+125\",\"value\":\"75 150 225 300\"}"
+    "vanilla": "{\"special_bonus_unique_magnus\":\"+125\",\"value\":\"90 160 230 300\"}"
   },
   "magnataur_skewer|AbilityManaCost": {
     "file": "abilities/magnataur_skewer.txt",
@@ -3349,7 +3357,7 @@
   },
   "mars_gods_rebuke|AbilityValues/crit_mult": {
     "file": "abilities/mars_gods_rebuke.txt",
-    "vanilla": "{\"DamageTypeTooltip\":\"DAMAGE_TYPE_PHYSICAL\",\"special_bonus_unique_mars_gods_rebuke_extra_crit\":\"+65\",\"value\":\"150 200 250 300\"}"
+    "vanilla": "{\"DamageTypeTooltip\":\"DAMAGE_TYPE_PHYSICAL\",\"special_bonus_unique_mars_gods_rebuke_extra_crit\":\"+65\",\"value\":\"160 200 240 280\"}"
   },
   "mars_spear|AbilityValues/shard_dps": {
     "file": "abilities/mars_spear.txt",
@@ -3362,6 +3370,10 @@
   "medusa_gorgon_grasp|AbilityCooldown": {
     "file": "abilities/medusa_gorgon_grasp.txt",
     "vanilla": "30 26 22 18"
+  },
+  "medusa_gorgon_grasp|AbilityValues/AbilityCooldown": {
+    "file": "abilities/medusa_gorgon_grasp.txt",
+    "vanilla": "30 25 20 15"
   },
   "medusa_mana_shield|AbilityValues/damage_per_mana": {
     "file": "abilities/medusa_mana_shield.txt",
@@ -3385,7 +3397,7 @@
   },
   "medusa_stone_gaze|AbilityValues/duration": {
     "file": "abilities/medusa_stone_gaze.txt",
-    "vanilla": "{\"special_bonus_unique_medusa\":\"+2.5\",\"value\":\"5 5.5 6\"}"
+    "vanilla": "{\"special_bonus_unique_medusa\":\"+3\",\"value\":\"5 5.5 6\"}"
   },
   "medusa_stone_gaze|SpellImmunityType": {
     "file": "abilities/medusa_stone_gaze.txt",
@@ -3437,7 +3449,7 @@
   },
   "monkey_king_boundless_strike|AbilityValues/AbilityCooldown": {
     "file": "abilities/monkey_king_boundless_strike.txt",
-    "vanilla": "{\"value\":\"24 21 18 15\"}"
+    "vanilla": "{\"value\":\"24 20 16 12\"}"
   },
   "monkey_king_mischief|AbilityValues/AbilityCooldown": {
     "file": "abilities/monkey_king_mischief.txt",
@@ -3509,7 +3521,7 @@
   },
   "muerta_gunslinger|AbilityValues/double_shot_chance": {
     "file": "abilities/muerta_gunslinger.txt",
-    "vanilla": "{\"special_bonus_unique_muerta_gunslinger_double_shot_chance\":\"+20\",\"value\":\"18 27 36 45\"}"
+    "vanilla": "{\"special_bonus_unique_muerta_gunslinger_double_shot_chance\":\"+15\",\"value\":\"20 30 40 50\"}"
   },
   "muerta_pierce_the_veil|AbilityCooldown": {
     "file": "abilities/muerta_pierce_the_veil.txt",
@@ -3541,7 +3553,7 @@
   },
   "naga_siren_mirror_image|AbilityValues/AbilityCooldown": {
     "file": "abilities/naga_siren_mirror_image.txt",
-    "vanilla": "{\"special_bonus_unique_naga_siren_6\":\"-10\",\"value\":\"40 35 30 25\"}"
+    "vanilla": "{\"special_bonus_unique_naga_siren_6\":\"-6\",\"value\":\"40 35 30 25\"}"
   },
   "naga_siren_mirror_image|AbilityValues/images_count": {
     "file": "abilities/naga_siren_mirror_image.txt",
@@ -3625,7 +3637,7 @@
   },
   "night_stalker_crippling_fear|AbilityValues/dps": {
     "file": "abilities/night_stalker_crippling_fear.txt",
-    "vanilla": "{\"special_bonus_unique_night_stalker_crippling_fear_damage\":\"+10\",\"value\":\"25 30 35 40\"}"
+    "vanilla": "{\"special_bonus_unique_night_stalker_crippling_fear_damage\":\"+15\",\"value\":\"25 30 35 40\"}"
   },
   "night_stalker_darkness|AbilityValues/AbilityCooldown": {
     "file": "abilities/night_stalker_darkness.txt",
@@ -3665,15 +3677,15 @@
   },
   "nyx_assassin_jolt|AbilityValues/AbilityCooldown": {
     "file": "abilities/nyx_assassin_jolt.txt",
-    "vanilla": "{\"special_bonus_unique_nyx_jolt_cooldown\":\"-3\",\"value\":\"11 9.5 8 6.5\"}"
+    "vanilla": "{\"special_bonus_unique_nyx_jolt_cooldown\":\"-2\",\"value\":\"11 9.5 8 6.5\"}"
   },
   "nyx_assassin_jolt|AbilityValues/mana_burn_pct": {
     "file": "abilities/nyx_assassin_jolt.txt",
-    "vanilla": "{\"value\":\"9 12 15 18\"}"
+    "vanilla": "{\"value\":\"12.5 15.0 17.5 20\"}"
   },
   "nyx_assassin_jolt|AbilityValues/max_mana_as_damage_pct": {
     "file": "abilities/nyx_assassin_jolt.txt",
-    "vanilla": "{\"value\":\"25 30 35 40\"}"
+    "vanilla": "{\"value\":\"20 25 30 35\"}"
   },
   "nyx_assassin_spiked_carapace|AbilityCooldown": {
     "file": "abilities/nyx_assassin_spiked_carapace.txt",
@@ -3709,7 +3721,7 @@
   },
   "obsidian_destroyer_objurgation|AbilityValues/AbilityCooldown": {
     "file": "abilities/obsidian_destroyer_objurgation.txt",
-    "vanilla": "{\"special_bonus_unique_outworld_devourer_barrier\":\"-10\",\"value\":\"36 33 30 27\"}"
+    "vanilla": "{\"special_bonus_unique_outworld_devourer_barrier\":\"-7\",\"value\":\"36 33 30 27\"}"
   },
   "obsidian_destroyer_objurgation|AbilityValues/automatic_trigger_cd": {
     "file": "abilities/obsidian_destroyer_objurgation.txt",
@@ -3721,7 +3733,7 @@
   },
   "obsidian_destroyer_sanity_eclipse|AbilityValues/base_damage": {
     "file": "abilities/obsidian_destroyer_sanity_eclipse.txt",
-    "vanilla": "200 300 400"
+    "vanilla": "180 270 360"
   },
   "ogre_magi_bloodlust|AbilityCooldown": {
     "file": "abilities/ogre_magi_bloodlust.txt",
@@ -3817,7 +3829,7 @@
   },
   "oracle_purifying_flames|AbilityManaCost": {
     "file": "abilities/oracle_purifying_flames.txt",
-    "vanilla": "75"
+    "vanilla": "60 65 70 75"
   },
   "oracle_purifying_flames|AbilityUnitTargetFlags": {
     "file": "abilities/oracle_purifying_flames.txt",
@@ -3853,7 +3865,7 @@
   },
   "phantom_assassin_blur|AbilityValues/duration": {
     "file": "abilities/phantom_assassin_blur.txt",
-    "vanilla": "30"
+    "vanilla": "20"
   },
   "phantom_assassin_coup_de_grace|AbilityValues/crit_bonus": {
     "file": "abilities/phantom_assassin_coup_de_grace.txt",
@@ -3885,7 +3897,7 @@
   },
   "phantom_lancer_doppelwalk|AbilityValues/AbilityCooldown": {
     "file": "abilities/phantom_lancer_doppelwalk.txt",
-    "vanilla": "{\"special_bonus_unique_phantom_lancer_4\":\"-4\",\"value\":\"22 18 14 10\"}"
+    "vanilla": "{\"special_bonus_unique_phantom_lancer_4\":\"-3\",\"value\":\"22 18 14 10\"}"
   },
   "phantom_lancer_doppelwalk|AbilityValues/illusion_2_damage_in_pct": {
     "file": "abilities/phantom_lancer_doppelwalk.txt",
@@ -3965,7 +3977,7 @@
   },
   "phoenix_sun_ray|AbilityValues/base_damage": {
     "file": "abilities/phoenix_sun_ray.txt",
-    "vanilla": "15 20 25 30"
+    "vanilla": "20 25 30 35"
   },
   "phoenix_supernova|AbilityCooldown": {
     "file": "abilities/phoenix_supernova.txt",
@@ -4069,7 +4081,7 @@
   },
   "puck_dream_coil|AbilityValues/AbilityCooldown": {
     "file": "abilities/puck_dream_coil.txt",
-    "vanilla": "{\"special_bonus_unique_puck\":\"-30\",\"value\":\"75\"}"
+    "vanilla": "{\"special_bonus_unique_puck\":\"-30\",\"value\":\"80 75 70\"}"
   },
   "puck_dream_coil|AbilityValues/attack_rate_pct": {
     "file": "abilities/puck_dream_coil.txt",
@@ -4661,7 +4673,7 @@
   },
   "skywrath_mage_mystic_flare|AbilityValues/damage": {
     "file": "abilities/skywrath_mage_mystic_flare.txt",
-    "vanilla": "{\"special_bonus_unique_skywrath_5\":\"+400\",\"value\":\"800 1200 1600\"}"
+    "vanilla": "{\"special_bonus_unique_skywrath_5\":\"+350\",\"value\":\"800 1125 1450\"}"
   },
   "slardar_amplify_damage|AbilityValues/armor_reduction": {
     "file": "abilities/slardar_amplify_damage.txt",
@@ -5641,7 +5653,7 @@
   },
   "weaver_the_swarm|AbilityValues/destroy_attacks": {
     "file": "abilities/weaver_the_swarm.txt",
-    "vanilla": "{\"special_bonus_unique_weaver_4\":\"+2\",\"value\":\"6 7 8 9\"}"
+    "vanilla": "{\"special_bonus_unique_weaver_4\":\"+1\",\"value\":\"3 4 4 5\"}"
   },
   "weaver_time_lapse|AbilityCastPoint": {
     "file": "abilities/weaver_time_lapse.txt",
@@ -5701,11 +5713,11 @@
   },
   "wisp_equilibrium|AbilityValues/damage_amplification": {
     "file": "abilities/wisp_equilibrium.txt",
-    "vanilla": "{\"hero_levelup\":\"+0.4\",\"value\":\"4\"}"
+    "vanilla": "{\"hero_levelup\":\"+0.3\",\"value\":\"4\"}"
   },
   "wisp_equilibrium|AbilityValues/heal_amplification": {
     "file": "abilities/wisp_equilibrium.txt",
-    "vanilla": "{\"hero_levelup\":\"+0.4\",\"value\":\"4\"}"
+    "vanilla": "{\"hero_levelup\":\"+0.3\",\"value\":\"4\"}"
   },
   "wisp_overcharge|AbilityCooldown": {
     "file": "abilities/wisp_overcharge.txt",

@@ -36,7 +36,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "35"
     "AbilitySharedCooldown"                               "abyssal"
-    "AbilityCastRange"                                    "200" //OAA, intentionally buffed
+    "AbilityCastRange"                                    "235" //OAA, intentionally buffed; 7.42 vanilla 150 -> 175 re-applied (draft)
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "75"
 

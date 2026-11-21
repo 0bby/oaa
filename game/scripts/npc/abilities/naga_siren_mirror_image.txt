@@ -50,10 +50,10 @@
         "value"                                           "2"
         "special_bonus_unique_naga_siren"                 "+1"
       }
-      "AbilityCooldown" //OAA, intentionally buffed
+      "AbilityCooldown" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
         "value"                                           "28 27 26 25 24 23"
-        "special_bonus_unique_naga_siren_6"               "-10"
+        "special_bonus_unique_naga_siren_6"               "-6"
       }
     }
   }

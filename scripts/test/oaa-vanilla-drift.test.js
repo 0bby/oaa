@@ -73,3 +73,29 @@ test('meta keys inside OAA-commented blocks follow vanilla', function (t) {
     });
   });
 });
+
+// 7.42 moved some cooldowns from the top level into AbilityValues. The game then reads the
+// AbilityValues one, so an OAA buff left at the top level is silently lost (Dark Seer Vacuum,
+// Dazzle Nothl Projection, Medusa Gorgon Grasp).
+test('OAA-commented top-level values are not shadowed by AbilityValues', function (t) {
+  RV.oaaFiles(function (err, files) {
+    t.notOk(err, 'read OAA KVs');
+    Object.keys(files).forEach(function (file) {
+      const root = files[file] && files[file].DOTAAbilities;
+      if (!root) return;
+      Object.keys(root).filter(k => k !== 'values' && k !== 'comments').forEach(function (name) {
+        const entry = root[name];
+        const av = entry.AbilityValues;
+        if (!av || !entry.values) return;
+        Object.keys(entry.values).forEach(function (key) {
+          const comment = (entry.comments || {})[key] || '';
+          const shadowed = (av.values && av.values[key] !== undefined) || av[key];
+          if (comment.includes('OAA') && shadowed) {
+            t.fail(name + ': ' + key + ' is set at the top level with an OAA comment, but AbilityValues also has ' + key + ' and wins in game. Move the OAA value into AbilityValues.');
+          }
+        });
+      });
+    });
+    t.end();
+  });
+});

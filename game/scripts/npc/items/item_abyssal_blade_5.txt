@@ -39,7 +39,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"                                     "35"
     "AbilitySharedCooldown"                               "abyssal"
-    "AbilityCastRange"                                    "200"
+    "AbilityCastRange"                                    "235"
     "AbilityCastPoint"                                    "0.0"
     "AbilityManaCost"                                     "75"
 

@@ -21,7 +21,6 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "60 55 50 45 40" //OAA, intentionally buffed
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -36,9 +35,9 @@
         "value"                                           "450"
         "special_bonus_shard"                             "+250"
       }
-      "AbilityCooldown"
+      "AbilityCooldown" //OAA, intentionally buffed; moved here from the top level because 7.42 vanilla reads the cooldown from AbilityValues (draft)
       {
-        "value"                                           "70 60 50 40 30"
+        "value"                                           "60 55 50 45 40"
         "special_bonus_unique_dazzle_nothl_projection_cooldown"  "-15"
       }
       "min_duration"                                      "1"

@@ -29,7 +29,7 @@
         "special_bonus_unique_lina_2"                     "+1"
         "display_type"                                    "kBuffPercentage"
       }
-      "fiery_soul_magic_resist" //OAA, intentionally nerfed
+      "fiery_soul_magic_resist" //OAA, intentionally nerfed; unused: 7.42 vanilla removed it (lina_4 talent is now cast range on another spell)
       {
         "special_bonus_unique_lina_4"                     "+2"
       }

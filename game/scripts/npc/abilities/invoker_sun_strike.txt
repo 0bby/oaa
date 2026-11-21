@@ -38,9 +38,9 @@
         "value"                                           "20"
         "special_bonus_unique_invoker_11"                 "-4"
       }
-      "damage" //OAA, intentionally buffed
+      "damage" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "200 265 330 395 460 525 590 720 850 980 1240"
+        "value"                                           "200 255 305 360 410 465 515 625 730 845 1065"
         "levelkey"                                        "exortlevel"
       }
       "vision_distance"

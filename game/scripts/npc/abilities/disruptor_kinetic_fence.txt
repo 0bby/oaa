@@ -40,9 +40,9 @@
       {
         "value"                                           "100"
       }
-      "AbilityCooldown" //OAA, intentionally buffed
+      "AbilityCooldown" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "11"
+        "value"                                           "9"
         "special_bonus_unique_disruptor_2"                "-3" // unused
       }
       "radius"

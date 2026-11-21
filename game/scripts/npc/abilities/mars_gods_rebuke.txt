@@ -34,9 +34,9 @@
       "knockback_slow"                                    "40"
       "activity_duration"                                 "2"
       "bonus_damage_vs_heroes"                            "5 10 15 20 40 60"
-      "crit_mult" //OAA, because of special_bonus_unique_mars_gods_rebuke_extra_crit buff
+      "crit_mult" //OAA, because of special_bonus_unique_mars_gods_rebuke_extra_crit buff; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "150 200 250 300 350 400"
+        "value"                                           "160 200 240 280 330 370"
         "special_bonus_unique_mars_gods_rebuke_extra_crit"  "+85"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_PHYSICAL"
       }

@@ -23,9 +23,9 @@
         "value"                                           "10 20 30 40 80 120"
         "special_bonus_unique_dragon_knight_wyrms_wrath_damage"  "+50%"
       }
-      "bonus_aoe" //OAA, intentionally nerfed
+      "bonus_aoe" //OAA, intentionally nerfed; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "30 45 60 75 90 105"
+        "value"                                           "40 45 55 65 75 90"
         "special_bonus_unique_dragon_knight_wyrms_wrath_damage"  "+50%"
       }
     }

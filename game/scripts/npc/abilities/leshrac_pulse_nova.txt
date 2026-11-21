@@ -41,9 +41,9 @@
         "value"                                           "500"
         "affected_by_aoe_increase"                        "1"
       }
-      "damage" //OAA, intentionally buffed
+      "damage" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "80 140 200 320 440"
+        "value"                                           "80 130 200 320 440"
         "special_bonus_unique_leshrac_3"                  "+50"
       }
       "damage_resistance"

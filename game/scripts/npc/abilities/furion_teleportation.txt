@@ -30,15 +30,15 @@
     "AbilityValues"
     {
       "buff_duration"                                     "0"
-      "AbilityCooldown" //OAA, intentionally buffed
+      "AbilityCooldown" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "35 30 25 20 15 10"
+        "value"                                           "50 40 30 20 15 10"
         "special_bonus_unique_furion_3"                   "-100%"
       }
-      "barrier" //OAA, intentionally buffed
+      "barrier" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
         "value"                                           "100 150 200 250 500 750"
-        "special_bonus_unique_furion_teleportation_barrier"  "+100"
+        "special_bonus_unique_furion_teleportation_barrier"  "0"
       }
     }
   }

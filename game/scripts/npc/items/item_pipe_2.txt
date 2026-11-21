@@ -36,12 +36,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                                           "item_pipe"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "SpellDispellableType"                                "SPELL_DISPELLABLE_NO"
+    "SpellDispellableType"                                "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"                                  "custom/pipe_of_insight_2"
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "30"
+    "AbilityCooldown"                                     "25"
     "AbilitySharedCooldown"                               "pipe"
     "AbilityManaCost"                                     "150"
     "AbilityCastRange"                                    "1200"

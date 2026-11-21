@@ -42,10 +42,10 @@
         "special_bonus_unique_weaver_3"                   "+0.5"
       }
       "duration"                                          "16"
-      "destroy_attacks" //OAA, intentionally rescaled
+      "destroy_attacks" //OAA, intentionally rescaled; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "8"
-        "special_bonus_unique_weaver_4"                   "+2"
+        "value"                                           "4"
+        "special_bonus_unique_weaver_4"                   "+1"
       }
       "radius"
       {

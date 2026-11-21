@@ -36,9 +36,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "damage" //OAA, intentionally buffed
+      "damage" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "250 500 750 1250 2000"
+        "value"                                           "250 470 700 1150 1800"
       }
       "bonus_jump_damage"
       {

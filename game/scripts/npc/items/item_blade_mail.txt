@@ -13,7 +13,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCorePointCost"                                   "0"
-    "ItemCost"                                            "350" //OAA, intentionally buffed
+    "ItemCost"                                            "310" //OAA, intentionally buffed; 7.42 vanilla 450 -> 400 re-applied (draft)
     "ItemShopTags"                                        ""
 
     // Recipe
@@ -45,7 +45,7 @@
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "2300" //OAA
+    "ItemCost"                                            "2260" //OAA; 7.42 vanilla 2400 -> 2350 re-applied (draft)
     "ItemShopTags"                                        "damage;armor;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "bm;blade mail;blademail"

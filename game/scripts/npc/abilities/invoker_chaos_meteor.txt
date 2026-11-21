@@ -65,9 +65,9 @@
         "value"                                           "55 90 125 160 195 230 265 335 405 475 615"
         "levelkey"                                        "exortlevel"
       }
-      "burn_dps" //OAA, intentionally buffed
+      "burn_dps" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "10 17 24 31 38 45 52 66 80 94 122"
+        "value"                                           "12 18 24 30 35 41 47 59 70 83 107"
         "levelkey"                                        "exortlevel"
         "CalculateSpellDamageTooltip"                     "1"
         "DamageTypeTooltip"                               "DAMAGE_TYPE_MAGICAL"

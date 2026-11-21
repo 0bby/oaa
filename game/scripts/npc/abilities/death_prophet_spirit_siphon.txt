@@ -45,10 +45,10 @@
         "value"                                           "6"
       }
       "siphon_buffer"                                     "250"
-      "AbilityChargeRestoreTime" //OAA, intentionally buffed base value and intentionally nerfed special_bonus_unique_death_prophet_5 talent
+      "AbilityChargeRestoreTime" //OAA, intentionally buffed base value and intentionally nerfed special_bonus_unique_death_prophet_5 talent; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "30"
-        "special_bonus_unique_death_prophet_5"            "-12"
+        "value"                                           "26"
+        "special_bonus_unique_death_prophet_5"            "-4"
       }
       "movement_slow"
       {

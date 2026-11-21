@@ -34,11 +34,7 @@
     "AbilityValues"
     {
       "drag_speed"                                        "40 50 60 70 70 70"
-      "AbilityCooldown" //OAA, intentionally rescaled
-      {
-        "value"                                           "9 8 7 6 5 4"
-        "special_bonus_unique_ancient_apparition_3"       "-2"
-      }
+      "AbilityCooldown"                                   "9 8 7 6 5 4" //OAA, intentionally rescaled; 7.42 vanilla moved talent _3 to Cold Feet (draft)
       "radius"
       {
         "value"                                           "275"

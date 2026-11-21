@@ -22,7 +22,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"                                     "120" //OAA, intentionally buffed
+    "AbilityCooldown"                                     "100" //OAA, intentionally buffed; 7.42 vanilla 150.0 -> 145 135 125 re-applied (draft)
     "AbilityDuration"                                     "40"
 
     // Cost

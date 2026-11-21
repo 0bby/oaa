@@ -34,10 +34,10 @@
         "value"                                           "90 160 230 300 600 900"
         "special_bonus_unique_bane_2"                     "+275"
       }
-      "AbilityCooldown" //OAA, intentionally buffed
+      "AbilityCooldown" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
         "value"                                           "14 13 12 11 10 9"
-        "special_bonus_shard"                             "-3"
+        "special_bonus_shard"                             "-4"
       }
       "shard_radius"
       {

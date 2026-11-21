@@ -33,7 +33,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "duration"                                          "18" //OAA, intentionally buffed
+      "duration"                                          "18" //OAA, intentionally buffed; 7.42 vanilla 12 14 16 18 -> 9 12 15 18 re-applied (draft)
       "tick_interval"                                     "0.2"
       "linger_duration"                                   "0.5"
       "shield_pct_absorb"                                 "70"

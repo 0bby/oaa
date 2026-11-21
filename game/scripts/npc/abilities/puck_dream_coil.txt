@@ -31,9 +31,9 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityValues"
     {
-      "AbilityCooldown" //OAA, intentionally buffed
+      "AbilityCooldown" //OAA, intentionally buffed; 7.42 vanilla change re-applied (draft)
       {
-        "value"                                           "75 70 65 60 55"
+        "value"                                           "80 70 60 55 50"
         "special_bonus_unique_puck"                       "-25"
       }
       "coil_duration"                                     "5 5.5 6 6.5 7"
