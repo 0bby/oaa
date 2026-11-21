@@ -2263,6 +2263,10 @@
     "file": "items/blinks/item_arcane_blink.txt",
     "vanilla": "{\"01\":\"item_blink*;item_mystic_staff\"}"
   },
+  "item_recipe_berserkers_sabatons|ItemRequirements": {
+    "file": "items/item_berserkers_sabatons.txt",
+    "vanilla": "{\"01\":\"item_phase_boots*;item_armlet\"}"
+  },
   "item_recipe_bfury|ItemCost": {
     "file": "items/item_bfury.txt",
     "vanilla": "400"
@@ -2366,6 +2370,10 @@
   "item_recipe_sphere|ItemCost": {
     "file": "items/item_sphere.txt",
     "vanilla": "600"
+  },
+  "item_recipe_starforge|ItemRequirements": {
+    "file": "items/item_starforge.txt",
+    "vanilla": "{\"01\":\"item_meteor_hammer;item_ultimate_orb\"}"
   },
   "item_recipe_swift_blink|ItemRequirements": {
     "file": "items/blinks/item_swift_blink.txt",
@@ -2534,6 +2542,26 @@
   "item_sphere|SpellDispellableType": {
     "file": "items/item_sphere.txt",
     "vanilla": null
+  },
+  "item_starforge_2|AbilityValues/stun_duration": {
+    "file": "items/item_starforge_2.txt",
+    "vanilla": "0.75"
+  },
+  "item_starforge_3|AbilityValues/stun_duration": {
+    "file": "items/item_starforge_3.txt",
+    "vanilla": "0.75"
+  },
+  "item_starforge_4|AbilityValues/stun_duration": {
+    "file": "items/item_starforge_4.txt",
+    "vanilla": "0.75"
+  },
+  "item_starforge_5|AbilityValues/stun_duration": {
+    "file": "items/item_starforge_5.txt",
+    "vanilla": "0.75"
+  },
+  "item_starforge|AbilityValues/stun_duration": {
+    "file": "items/item_starforge.txt",
+    "vanilla": "0.75"
   },
   "item_talisman_of_evasion|SecretShop": {
     "file": "items/basic/item_talisman_of_evasion.txt",

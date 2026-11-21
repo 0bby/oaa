@@ -14,8 +14,15 @@ test('vanilla changes under OAA comments', function (t) {
     RV.liveVanilla(function (err, vanilla) {
       t.notOk(err, 'read vanilla KVs');
       const current = RV.collect(files, vanilla);
+      // new OAA comments are recorded at today's vanilla (like the ItemCost auto-fix), so they are tracked from now on
+      const added = Object.keys(current).filter(key => !(key in snapshot));
+      if (added.length) {
+        added.forEach(key => { snapshot[key] = current[key]; });
+        RV.save(snapshot);
+        t.comment('recorded ' + added.length + ' new OAA-commented keys in ' + RV.SNAPSHOT + ' (commit it)');
+      }
       Object.keys(current).forEach(function (key) {
-        if (!(key in snapshot)) return; // new OAA comment: added by the next --accept
+        if (added.includes(key)) return;
         const was = snapshot[key].vanilla;
         const now = current[key].vanilla;
         if (was !== now) {
