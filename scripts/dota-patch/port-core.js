@@ -61,6 +61,7 @@ function portFile (text, ctx) {
   const ed = new kv.Editor(text);
   const actions = [];
   const eol = text.includes('\r\n') ? '\r\n' : '\n';
+  let editMark = 0;
 
   kv.entries(root).forEach(node => {
     const name = node.key;
@@ -83,10 +84,26 @@ function portFile (text, ctx) {
       return;
     }
     if (!vo) return; // new in vanilla; OAA already has it (nothing to diff against)
+    // vanilla retired the item (7.42 Revenant's Brooch: cost 0, recipe gone)
+    if (/^item_/.test(parent) && getCI(vn, 'ItemCost') === '0' && +getCI(vo, 'ItemCost') > 0) {
+      actions.push({ entry: name, path: '', kind: 'review', note: 'vanilla retired ' + parent + ' (ItemCost 0): keep, remove or replace the OAA family' });
+      return;
+    }
     const custom = (isCustomBase(base) && (parent === name || parent === familyBase)) || customFamily;
     const vLv = vanillaLevels(vn, parent);
     const oLv = oaaLevels(node, vLv, name);
-    const log = (a) => actions.push(Object.assign({ entry: name }, a));
+    // each applied action owns the edits pushed since the previous log, so
+    // --safe can keep only the objective ones (see filterSafe)
+    const log = (a) => {
+      const act = Object.assign({ entry: name }, a);
+      const own = ed.edits.slice(editMark);
+      if (own.length) Object.defineProperty(act, 'edits', { value: own, enumerable: false });
+      if (act.kind === 'applied' && extrapolated) act.oaaLevels = true;
+      extrapolated = false;
+      actions.push(act);
+      editMark = ed.edits.length;
+    };
+    let extrapolated = false; // set by fitLevels when it invents OAA levels
 
     function portLeaf (oNode, from, to, path, commentNodes) {
       if (!oNode || oNode.value === undefined) return;
@@ -113,8 +130,19 @@ function portFile (text, ctx) {
     TOP_KEYS.forEach(key => {
       const a = getCI(vo, key);
       const b = getCI(vn, key);
-      if (a === b || typeof a !== 'string' || typeof b !== 'string') return;
+      if (a === b || typeof a !== 'string') return;
       const top = kv.child(node, key);
+      if (b === undefined) {
+        // vanilla dropped the key: either deleted, or moved into AbilityValues
+        if (!top || top.value === undefined) return;
+        const moved = getCI(getCI(vn, 'AbilityValues') || {}, key) !== undefined;
+        if (moved) return log({ path: key, kind: 'review', from: top.value, note: 'vanilla moved ' + key + ' into AbilityValues' });
+        if (PROTECTED.test(top.comment) || /OAA/.test(top.comment)) return log({ path: key, kind: 'review', note: 'vanilla removed this key, OAA comment kept it: ' + top.comment });
+        if (custom) return log({ path: key, kind: 'structural', note: 'vanilla removed this key (custom base class)' });
+        ed.remove(top);
+        return log({ path: key, kind: 'applied', rule: 'remove-top', from: top.value });
+      }
+      if (typeof b !== 'string') return;
       if (top && top.value !== undefined) {
         portLeaf(top, a, b, key, [top]);
       } else {
@@ -159,12 +187,25 @@ function portFile (text, ctx) {
       if (!oK) return;
       const bo = asBlock(oldVal);
       const bn = asBlock(avn[k]);
-      if (JSON.stringify(bo) === JSON.stringify(bn)) return;
       const path = 'AbilityValues/' + k;
-      // leaf in OAA but vanilla now has sub keys -> convert to block
+      const vanBecameBlock = typeof oldVal === 'string' && typeof avn[k] === 'object';
+      const vanBecameLeaf = typeof oldVal === 'object' && typeof avn[k] === 'string';
+      // vanilla turned a block into a plain value: follow it, unless OAA added its own sub keys
+      if (oK.children && vanBecameLeaf && oK.children.every(c => c.key.toLowerCase() === 'value' || getCI(bo, c.key) !== undefined)) {
+        if (custom) return log({ path, kind: 'structural', note: 'vanilla turned this block into a plain value' });
+        const vnode = kv.child(oK, 'value');
+        if (!vnode || PROTECTED.test(oK.comment + ' ' + vnode.comment)) return;
+        const r = portValue(bo.value, bn.value, vnode.value, { vanillaLevels: vLv, oaaLevels: oLv });
+        const v = r.skip ? vnode.value : r.value;
+        const tail = oK.comment || vnode.comment;
+        ed.edits.push({ start: oK.start, end: oK.end, text: kv.formatLeaf(kv.indentOf(text, oK), oK.key, v, kv.valueColumn(text, vnode), tail ? ' //' + tail + eol : eol) });
+        return log({ path, kind: 'applied', rule: 'block-to-leaf', valueRule: r.skip ? 'kept' : r.rule, from: vnode.value, to: v, lowConfidence: !!r.skip || undefined });
+      }
+      if (JSON.stringify(bo) === JSON.stringify(bn) && !(vanBecameBlock && !oK.children)) return;
+      // leaf in OAA but vanilla now has sub keys (or became a block) -> convert to block
       if (!oK.children) {
         const extraSubs = Object.keys(bn).filter(s => s !== 'value');
-        if (extraSubs.length) {
+        if (extraSubs.length || vanBecameBlock) {
           if (custom) return log({ path, kind: 'structural', note: 'vanilla turned this into a block with ' + extraSubs.join(', ') });
           convertLeaf(oK, bo, bn, path);
           return;
@@ -218,7 +259,10 @@ function portFile (text, ctx) {
     function fitLevels (val) {
       if (typeof val !== 'string') return val;
       const t = parseTokens(val);
-      if (t && t.length > 1 && t.length === vLv && oLv > vLv) return extendLinear(t, oLv);
+      if (t && t.length > 1 && t.length === vLv && oLv > vLv) {
+        extrapolated = true;
+        return extendLinear(t, oLv);
+      }
       return val;
     }
 
@@ -248,7 +292,7 @@ function portFile (text, ctx) {
       const t = blockText(indent, k, val, col);
       if (prev) ed.insertAfter(prev, t);
       else ed.insertFirst(oAV, t);
-      log({ path: 'AbilityValues/' + k, kind: 'applied', rule: 'add-key', to: JSON.stringify(val), lowConfidence: true });
+      log({ path: 'AbilityValues/' + k, kind: 'applied', rule: 'add-key', to: JSON.stringify(val), lowConfidence: extrapolated || undefined });
     }
 
     function convertLeaf (oK, bo, bn, path) {
@@ -258,11 +302,21 @@ function portFile (text, ctx) {
       const indent = kv.indentOf(text, oK);
       const t = blockText(indent, oK.key, obj, kv.valueColumn(text, oK), oK.comment);
       ed.edits.push({ start: oK.start, end: oK.end, text: t });
-      log({ path, kind: 'applied', rule: 'leaf-to-block', from: oK.value, to: JSON.stringify(obj), lowConfidence: !!r.skip || undefined });
+      log({ path, kind: 'applied', rule: 'leaf-to-block', valueRule: r.skip ? 'kept' : r.rule, from: oK.value, to: JSON.stringify(obj), lowConfidence: !!r.skip || undefined });
     }
   });
 
+  // every applied action carries its own edits, so port.js --safe can rebuild
+  // the file from the objective ones only (see applySafe)
   return { text: ed.apply(), actions };
+}
+
+// An applied action that only copies vanilla (no OAA level was invented)
+const OBJECTIVE_RULES = new Set(['copy', 'block-to-leaf', 'remove-key', 'remove-sub', 'remove-top', 'rename', 'add-sub', 'add-key', 'leaf-to-block', 'hero-stat', 'slot-comment']);
+function isObjective (a) {
+  if (a.kind !== 'applied' || a.oaaLevels || a.lowConfidence || !OBJECTIVE_RULES.has(a.rule)) return false;
+  if (/-to-/.test(a.rule) && !['copy', 'unchanged'].includes(a.valueRule)) return false;
+  return true;
 }
 
 /*
@@ -286,6 +340,64 @@ function heroSlotReview (text, ctx) {
   return out;
 }
 
+/*
+  Hero files: slot review plus base stats (AttributeBaseStrength...). A stat
+  is copied only when OAA still has the old vanilla value and no OAA comment.
+*/
+function portHeroFile (text, ctx) {
+  const actions = heroSlotReview(text, ctx);
+  const ed = new kv.Editor(text);
+  kv.entries(kv.parse(text)).forEach(node => {
+    const vo = ctx.vanOld[node.key];
+    const vn = ctx.vanNew[node.key];
+    if (!vo || !vn) return;
+    (node.children || []).forEach(c => {
+      if (c.children || c.value === undefined || /^Ability\d+$/.test(c.key)) return;
+      const a = getCI(vo, c.key);
+      const b = getCI(vn, c.key);
+      if (typeof a !== 'string' || typeof b !== 'string' || a === b) return;
+      if (c.value !== a || PROTECTED.test(c.comment) || /OAA/.test(c.comment)) {
+        actions.push({ entry: node.key, path: c.key, kind: 'review', from: c.value, vanilla: a + ' -> ' + b, note: 'OAA hero stat differs from vanilla' + (c.comment ? ': ' + c.comment : '') });
+        return;
+      }
+      const before = ed.edits.length;
+      ed.setValue(c, b);
+      const act = { entry: node.key, path: c.key, kind: 'applied', rule: 'hero-stat', from: a, to: b, vanilla: a + ' -> ' + b };
+      Object.defineProperty(act, 'edits', { value: ed.edits.slice(before), enumerable: false });
+      actions.push(act);
+    });
+  });
+  // commented slot lines ( //"Ability14"  "special_bonus_attack_speed_50" ) record
+  // the vanilla talent OAA replaced; when vanilla changes that slot, update the note
+  // (7.42: Wraith King +50 -> +40 attack speed is a new talent name in the same slot)
+  kv.entries(kv.parse(text)).forEach(node => {
+    const vo = ctx.vanOld[node.key];
+    const vn = ctx.vanNew[node.key];
+    if (!vo || !vn) return;
+    const re = /^[ \t]*\/\/[ \t]*"(Ability\d+)"[ \t]+"([^"]*)"/gm;
+    const body = text.slice(node.start, node.end);
+    let m;
+    while ((m = re.exec(body))) {
+      const a = getCI(vo, m[1]);
+      const b = getCI(vn, m[1]);
+      if (m[2] !== a || typeof b !== 'string' || a === b) continue;
+      // talents that moved between slots also move OAA's own override: a human job
+      const slotsOf = h => Object.keys(h).filter(k => /^Ability\d+$/.test(k)).map(k => h[k]);
+      if (slotsOf(vn).includes(a) || slotsOf(vo).includes(b)) {
+        actions.push({ entry: node.key, path: '//' + m[1], kind: 'review', from: a, vanilla: a + ' -> ' + b, note: 'vanilla moved talents between slots: move the OAA override with them' });
+        continue;
+      }
+      const at = node.start + m.index + m[0].length - 1 - m[2].length;
+      const edit = { start: at, end: at + m[2].length, text: b };
+      ed.edits.push(edit);
+      const act = { entry: node.key, path: '//' + m[1], kind: 'applied', rule: 'slot-comment', from: a, to: b, vanilla: a + ' -> ' + b };
+      Object.defineProperty(act, 'edits', { value: [edit], enumerable: false });
+      actions.push(act);
+    }
+  });
+  return { text: ed.apply(), actions };
+}
+
 // Names of vanilla items whose OAA upgrade tiers are reimplemented in Lua /
 // datadriven. texts: array of OAA item file contents.
 function findCustomFamilies (texts) {
@@ -300,4 +412,4 @@ function findCustomFamilies (texts) {
   return out;
 }
 
-module.exports = { portFile, heroSlotReview, findCustomFamilies, vanillaLevels, getCI, TOP_KEYS };
+module.exports = { portFile, isObjective, heroSlotReview, portHeroFile, findCustomFamilies, vanillaLevels, getCI, TOP_KEYS };

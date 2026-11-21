@@ -65,6 +65,82 @@ test('portFile ports values, renames and adds keys, respects comments', function
   t.end();
 });
 
+test('top-level keys vanilla deleted are removed; --safe holds invented OAA levels', function (t) {
+  const oaa = [
+    '"DOTAAbilities"',
+    '{',
+    '  "foo_lapse"',
+    '  {',
+    '    "AbilityCastRange"                                    "500" // for the scepter',
+    '    "AbilityCooldown"                                     "120"',
+    '    "AbilityValues"',
+    '    {',
+    '      "damage"                                            "100 200 300 400 500 600"',
+    '      "radius"                                            "300"',
+    '    }',
+    '  }',
+    '}',
+    ''
+  ].join('\n');
+  const vanOld = { foo_lapse: { MaxLevel: '4', AbilityCastRange: '500', AbilityCooldown: '120', AbilityValues: { damage: '100 200 300 400', radius: '300' } } };
+  const vanNew = { foo_lapse: { MaxLevel: '4', AbilityValues: { damage: '90 180 270 360', radius: '250', AbilityCooldown: '120' } } };
+  const full = portFile(oaa, { vanOld, vanNew });
+  t.notOk(full.text.includes('AbilityCastRange'), 'deleted top-level key removed');
+  t.ok(full.text.includes('"AbilityCooldown"                                     "120"'), 'moved key is left for review, not deleted');
+  t.ok(full.actions.some(a => a.path === 'AbilityCooldown' && a.kind === 'review' && /moved/.test(a.note)), 'move logged');
+  const { isObjective } = require('../dota-patch/port-core');
+  const byPath = p => full.actions.find(a => a.path === p);
+  t.ok(isObjective(byPath('AbilityValues/radius')), 'vanilla copy is objective');
+  t.ok(isObjective(byPath('AbilityCastRange')), 'top-level removal is objective');
+  t.notOk(isObjective(byPath('AbilityValues/damage')), 'invented OAA levels are not objective');
+  // --safe rebuilds the file from objective edits only
+  const ed = new kv.Editor(oaa);
+  full.actions.filter(isObjective).forEach(a => ed.edits.push(...a.edits));
+  const safe = ed.apply();
+  t.ok(/"radius"\s+"250"/.test(safe) && !safe.includes('AbilityCastRange'), 'safe: objective edits applied');
+  t.ok(safe.includes('"100 200 300 400 500 600"'), 'safe: OAA-level value left alone');
+  t.end();
+});
+
+test('OAA follows vanilla when it turns a value into a block or a block into a value', function (t) {
+  const oaa = [
+    '"DOTAAbilities"',
+    '{',
+    '  "foo_fence"',
+    '  {',
+    '    "AbilityValues"',
+    '    {',
+    '      "formation_time"',
+    '      {',
+    '        "value"                                           "1"',
+    '      }',
+    '      "chain_damage"                                      "180 230 330 480 680"',
+    '    }',
+    '  }',
+    '}',
+    ''
+  ].join('\r\n');
+  const vanOld = { foo_fence: { AbilityValues: { formation_time: { value: '1' }, chain_damage: '180' } } };
+  const vanNew = { foo_fence: { AbilityValues: { formation_time: '0.5', chain_damage: { value: '180' } } } };
+  const r = portFile(oaa, { vanOld, vanNew });
+  t.ok(/\r\n {6}"formation_time" +"0\.5"\r\n {6}"chain_damage"\r\n {6}\{\r\n {8}"value" +"180 230 330 480 680"\r\n {6}\}\r\n/.test(r.text), 'block -> leaf and leaf -> block, CRLF kept');
+  t.ok(r.actions.some(a => a.rule === 'block-to-leaf'), 'block-to-leaf logged');
+  t.equal(kv.entries(kv.parse(r.text)).length, 1, 'still parses');
+  t.end();
+});
+
+test('hero base stats copy vanilla only when OAA still has the old vanilla value', function (t) {
+  const { portHeroFile } = require('../dota-patch/port-core');
+  const oaa = '"DOTAHeroes"\n{\n  "npc_dota_hero_foo"\n  {\n    "AttributeBaseStrength"   "19"\n    "ArmorPhysical"   "5" // OAA\n  }\n}\n';
+  const vanOld = { npc_dota_hero_foo: { AttributeBaseStrength: '19', ArmorPhysical: '2' } };
+  const vanNew = { npc_dota_hero_foo: { AttributeBaseStrength: '20', ArmorPhysical: '3' } };
+  const r = portHeroFile(oaa, { vanOld, vanNew });
+  t.ok(r.text.includes('"AttributeBaseStrength"   "20"'), 'stat copied');
+  t.ok(r.text.includes('"ArmorPhysical"   "5" // OAA'), 'OAA stat untouched');
+  t.ok(r.actions.some(a => a.path === 'ArmorPhysical' && a.kind === 'review'), 'OAA stat logged for review');
+  t.end();
+});
+
 test('audit flags missing OAA levels and flattened OAA levels', function (t) {
   const { auditLevels } = require('../dota-patch/audit');
   const text = [
