@@ -47,7 +47,7 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"                                    "600"
-    "AbilityCooldown"                                     "24 23 22 21 20" // tiers like the old 5-tier OAA Meteor Hammer
+    "AbilityCooldown"                                     "24 23 22 21 20" // tiers like the old 5-tier Meteor Hammer
     "AbilityManaCost"                                     "175"
     "AbilitySharedCooldown"                               "meteor"
 
@@ -79,7 +79,7 @@
       "burn_dps_units"                                    "60 150 240 330 420"
       "burn_slow"                                         "15 20 25 30 35"
       "burn_duration"                                     "6"
-      "stun_duration"                                     "1.5" // OAA, intentionally 1.5 like the old OAA Meteor Hammer that Starforge replaces (vanilla 0.75)
+      "stun_duration"                                     "1.5" // OAA, intentionally 1.5 like the old Meteor Hammer that Starforge replaces (vanilla 0.75)
       "burn_interval"                                     "1.0"
       "land_time"                                         ".5"
       "impact_radius"
