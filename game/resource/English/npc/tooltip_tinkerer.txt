@@ -90,7 +90,7 @@
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_duration"                      "DURATION:"
 //"DOTA_Tooltip_ability_tinkerer_laser_contraption_initial_damage"                "INITIAL DAMAGE:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_damage_per_second"             "DAMAGE PER SECOND:"
-"DOTA_Tooltip_ability_tinkerer_laser_contraption_attacks_to_destroy"            "HERO ATTACKS REQUIRED (CREEPS: 4X):"
+"DOTA_Tooltip_ability_tinkerer_laser_contraption_attacks_to_destroy"            "ATTACKS REQUIRED:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_AbilityCastRange"              "CAST RANGE:"
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_scepter_description"           "Increases cast range and attacks required. Trapped enemies have reduced healing and health restoration. Applies Tar Spill every %scepter_tar_spill_interval% seconds."
 "DOTA_Tooltip_ability_tinkerer_laser_contraption_health_restoration"            "%SCEPTER HEALTH RESTORATION REDUCTION:"
