@@ -87,11 +87,12 @@ const commit = msg => {
 // a human signed off, recomputed from the PR head so both commits stay consistent
 const accept = o.accept ? ['--accept', o.accept] : [];
 port(accept.length ? accept.concat(['--stage', 'objective']) : []);
-commit('Vanilla ' + (o.tag || '') + ' copies for files not yet done in #' + o.pr + ' (no OAA levels changed)');
+// never write "#<n>" in a message: GitHub would cross-link it onto the upstream PR
+commit('Vanilla ' + (o.tag || '') + ' copies for files the port PR has not done yet (no OAA levels changed)');
 if (accept.length) {
   git(['checkout', '-q', ref, '--', 'game/scripts/npc'], wt);
   port(accept);
-  commit('OAA levels 5-6 by agreed rules (' + o.accept + ') for files not yet done in #' + o.pr);
+  commit('OAA levels 5-6 by agreed rules (' + o.accept + ') for files the port PR has not done yet');
 }
 console.log(branch + ' is ' + ref + ' ' + head + ' + the commits above. Skipped ' + touched.length + ' files the PR touched.');
 console.log('Decisions still open: ' + report.replace(/\.md$/, '-decisions.json'));
