@@ -27,7 +27,7 @@
 const fs = require('fs');
 const path = require('path');
 const { loadVanilla } = require('./vanilla');
-const { portFile, portHeroFile, isObjective, findCustomFamilies, TAPER_KEYS } = require('./port-core');
+const { portFile, portHeroFile, isObjective, findCustomFamilies, isTaperKey } = require('./port-core');
 
 // OAA-level edits a maintainer has accepted as a policy (--accept)
 function accepted (a, accept) {
@@ -36,7 +36,7 @@ function accepted (a, accept) {
   if (accept.has('linear') && rule === 'linear') return true;
   if (accept.has('ratio') && rule === 'ratio') return true;
   if (accept.has('item-offset') && rule === 'offset' && /^item_/.test(a.entry)) return true;
-  if (accept.has('taper') && TAPER_KEYS.test(a.path) &&
+  if (accept.has('taper') && isTaperKey(a.path) &&
     (rule === 'new-levels-linear' || (/^add-(key|sub)$/.test(rule) && a.lowConfidence))) return true;
   return false;
 }

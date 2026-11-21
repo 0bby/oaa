@@ -21,6 +21,14 @@ const TOP_KEYS = [
 ];
 const PROTECTED = /intentionally|because/i;
 const TAPER_KEYS = /duration|time|pct|percent|chance|resist|slow|amp|potency|reduction/i;
+// Damage/heal/stat keys scale linearly even when named *_pct (Kez max_health_damage_pct got
+// 3.92 4.09 instead of 4.25 4.75 in 7.42). Match on the key name only, never the ability name.
+const NO_TAPER_KEYS = /damage|dmg|heal|lifesteal|health|mana|armor|regen|attack_speed|bonus_(str|agi|int|all)/i;
+function isTaperKey (path) {
+  const parts = String(path || '').split('/').filter(p => p && p.toLowerCase() !== 'value');
+  const key = parts[parts.length - 1] || '';
+  return TAPER_KEYS.test(key) && !NO_TAPER_KEYS.test(key);
+}
 
 function getCI (obj, key) {
   if (!obj || typeof obj !== 'object') return undefined;
@@ -107,7 +115,7 @@ function portFile (text, ctx) {
     let extrapolated = false; // set by fitLevels when it invents OAA levels
     let currentKey = ''; // key being inserted, for taperFor
     // --accept taper: new durations/percentages get OAA levels at 1/3 of the vanilla step
-    const taperFor = p => ctx.taper && TAPER_KEYS.test(p || '') ? 1 / 3 : 1;
+    const taperFor = p => ctx.taper && isTaperKey(p) ? 1 / 3 : 1;
 
     function portLeaf (oNode, from, to, path, commentNodes) {
       if (!oNode || oNode.value === undefined) return;
@@ -438,4 +446,4 @@ function findCustomFamilies (texts) {
   return out;
 }
 
-module.exports = { TAPER_KEYS, portFile, isObjective, heroSlotReview, portHeroFile, findCustomFamilies, vanillaLevels, getCI, TOP_KEYS };
+module.exports = { TAPER_KEYS, isTaperKey, portFile, isObjective, heroSlotReview, portHeroFile, findCustomFamilies, vanillaLevels, getCI, TOP_KEYS };

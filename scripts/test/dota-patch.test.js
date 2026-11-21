@@ -185,3 +185,21 @@ test('audit flags missing OAA levels and flattened OAA levels', function (t) {
   t.notOk(out.some(f => f.path === 'radius'), 'flat radius is fine');
   t.end();
 });
+
+test('taper (1/3 step) only hits durations/percentages, never damage keys named *_pct', function (t) {
+  // 7.42 regression: Kez Raptor Dance max_health_damage_pct got 3.92 4.09 instead of 4.25 4.75
+  const { isTaperKey } = require('../dota-patch/port-core');
+  t.notOk(isTaperKey('AbilityValues/max_health_damage_pct/value'), 'damage pct is linear');
+  t.notOk(isTaperKey('AbilityValues/hp_regen_amp'), 'regen amp is linear');
+  t.ok(isTaperKey('AbilityValues/slow_duration/value'), 'duration tapers');
+  t.ok(isTaperKey('AbilityValues/movement_slow'), 'slow tapers');
+  const oaa = ['"DOTAAbilities"', '{', '  "foo_dance"', '  {', '    "MaxLevel"                                            "5"', '    "AbilityValues"', '    {',
+    '      "max_health_damage_pct"', '      {', '        "value"                                           "2.5"', '      }',
+    '      "slow_duration"', '      {', '        "value"                                           "1"', '      }', '    }', '  }', '}', ''].join('\n');
+  const vanOld = { foo_dance: { MaxLevel: '3', AbilityValues: { max_health_damage_pct: { value: '2.5' }, slow_duration: { value: '1' } } } };
+  const vanNew = { foo_dance: { MaxLevel: '3', AbilityValues: { max_health_damage_pct: { value: '2.75 3.25 3.75' }, slow_duration: { value: '1.0 1.3 1.6' } } } };
+  const r = portFile(oaa, { vanOld, vanNew, taper: true });
+  t.ok(r.text.includes('"2.75 3.25 3.75 4.25 4.75"'), 'damage continues the vanilla step');
+  t.ok(r.text.includes('"1.0 1.3 1.6 1.7 1.8"'), 'duration still tapers');
+  t.end();
+});
