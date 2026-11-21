@@ -131,10 +131,15 @@ function portValue (vOld, vNew, oOld, opts) {
     rule = 'offset';
     vals = extras.map(e => bL + (e.num - aL));
   }
+  // vanilla changed its per-level step: the old OAA steps no longer fit, and no rule
+  // predicts the hand port (7.42 Pudge strength_damage: offset 1.3 1.9, hand 1.1 1.5 = steps
+  // scaled; Decrepify: offset -45 -50, hand -48 -56 = linear). Scaling the steps scored 8/37
+  // vs offset 11/37 on the 7.40-7.41e backtest, so keep offset but send it to review.
+  const stepChanged = rule === 'offset' && sA !== null && sB !== null && !close(sA, sB);
   // never flip the sign of a series (e.g. a cooldown going negative)
   const lowConfidence = vals.some(v => (bL > 0 && v <= 0) || (bL < 0 && v >= 0));
   const tail = vals.map((v, i) => fmt(v, dec, extras[i].pre, extras[i].suf));
-  return { value: head.concat(tail).join(' '), rule, lowConfidence: lowConfidence || flatLow || undefined };
+  return { value: head.concat(tail).join(' '), rule, lowConfidence: lowConfidence || flatLow || stepChanged || undefined };
 }
 
 // factor < 1 tapers the OAA levels (maintainers use about 1/3 of the vanilla step

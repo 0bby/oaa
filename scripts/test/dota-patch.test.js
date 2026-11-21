@@ -203,3 +203,16 @@ test('taper (1/3 step) only hits durations/percentages, never damage keys named 
   t.ok(r.text.includes('"1.0 1.3 1.6 1.7 1.8"'), 'duration still tapers');
   t.end();
 });
+
+test('offset is sent to review when vanilla changed its per-level step (7.42 Pudge, Decrepify)', function (t) {
+  // hand ports: Pudge strength_damage 1.1 1.5 (steps scaled), Decrepify -48 -56 (linear);
+  // no single rule predicts both, so the porter must not apply these silently
+  const pudge = portValue('0.3 0.6 0.9', '0.3 0.5 0.7', '0.3 0.6 0.9 1.5 2.1', { oaaLevels: 5 });
+  t.equal(pudge.rule, 'offset');
+  t.ok(pudge.lowConfidence, 'Pudge strength_damage goes to review');
+  const decrepify = portValue('-20 -30 -40 -50', '-16 -24 -32 -40', '-20 -30 -40 -50 -55 -60', { oaaLevels: 6 });
+  t.ok(decrepify.lowConfidence, 'Decrepify bonus_spell_damage_pct goes to review');
+  const same = portValue('25 35 45 55', '30 40 50 60', '25 35 45 55 155 255', { vanillaLevels: 4, oaaLevels: 6 });
+  t.notOk(same.lowConfidence, 'same vanilla step: offset is still applied');
+  t.end();
+});
