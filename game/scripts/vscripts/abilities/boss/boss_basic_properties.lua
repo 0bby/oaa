@@ -214,11 +214,6 @@ if IsServer() then
       item_hydras_breath_4 = true,
       item_hydras_breath_5 = true,
       item_jidi_pollen_bag = true,
-      item_starforge = true,                  -- OAA, Darkonius to review: Starforge impact deals 15% max HP; this halves ALL its damage to bosses (impact, burn, Celestial Flare)
-      item_starforge_2 = true,
-      item_starforge_3 = true,
-      item_starforge_4 = true,
-      item_starforge_5 = true,
       item_serrated_shiv = true,              -- physical dmg
       kez_kazurai_katana = true,              -- physical dmg
       life_stealer_feast = true,              -- physical dmg; it does not work
