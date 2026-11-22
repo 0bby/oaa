@@ -25,6 +25,7 @@
             "item_orb_of_destruction"                         "1" // item_chipped_vest
             "item_ash_legion_shield"                          "1"
             "item_possessed_mask"                             "1"
+            "item_dagger_of_ristul"                           "1"
           }
         }
         "pool_b"
@@ -55,7 +56,6 @@
           {
             "item_kobold_cup"                                 "1"
             "item_stonefeather_satchel"                       "1"
-            "item_dagger_of_ristul"                           "1"
           }
         }
       }
@@ -382,6 +382,7 @@
           {
             "item_blood_sword"                                "1" // item_divine_regalia
             "item_heavy_blade"                                "1"
+            "item_rune_breaker_oaa"                           "1" // item_spider_legs
           }
         }
         "pool_c"
@@ -400,7 +401,6 @@
           "items"
           {
             "item_reflex_core"                                "1" // item_demonicon
-            "item_rune_breaker_oaa"                           "1" // item_spider_legs
             "item_riftshadow_prism"                           "1"
           }
         }
