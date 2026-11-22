@@ -86,7 +86,9 @@ test('neutral tiers use the same layout as vanilla', function (t) {
       blockKeys(data.item_pools).forEach((pool) => {
         const block = data.item_pools[pool];
         t.ok(block.values && block.values.options, `tier ${tier} ${pool} sets "options"`);
-        t.ok(block.items && Object.keys(block.items.values).length, `tier ${tier} ${pool} is not empty`);
+        // one item in a pool means that item is always offered
+        const count = block.items ? Object.keys(block.items.values).length : 0;
+        t.ok(count >= 2, `tier ${tier} ${pool} has at least 2 items (has ${count})`);
       });
     } else {
       t.ok(data.items, `tier ${tier} has an "items" list like vanilla`);
