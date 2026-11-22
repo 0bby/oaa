@@ -36,6 +36,7 @@
             "item_duelist_gloves"                             "1"
             "item_spark_of_courage"                           "1" // item_weighted_dice
             "item_dagger_of_ristul"                           "1"
+            "item_red_ledger"                                 "1" // OAA, new 7.42 neutral
           }
         }
         "pool_c"
@@ -45,6 +46,7 @@
           {
             "item_occult_bracelet"                            "1"
             "item_polliwog_charm"                             "1"
+            "item_foragers_kit"                               "1" // OAA, new 7.42 neutral
           }
         }
         "pool_d"
@@ -203,6 +205,7 @@
           {
             "item_jidi_pollen_bag"                            "1"
             "item_stormcrafter"                               "1"
+            "item_brick"                                      "1" // OAA, new 7.42 neutral
           }
         }
         "pool_c"
@@ -291,6 +294,7 @@
           {
             "item_giant_maul"                                 "1"
             "item_rattlecage"                                 "1"
+            "item_balmhook"                                   "1" // OAA, new 7.42 neutral
           }
         }
         "pool_c"
@@ -308,6 +312,8 @@
           "items"
           {
             "item_flayers_bota"                               "1"
+            "item_revenants_brooch"                           "1" // OAA, new 7.42 neutral
+            "item_vile_phial"                                 "1" // OAA, new 7.42 neutral
           }
         }
       }
@@ -386,6 +392,7 @@
           {
             "item_dezun_bloodrite"                            "1"
             "item_harmonizer"                                 "1"
+            "item_helm_of_the_hivemind"                       "1" // OAA, new 7.42 neutral
           }
         }
         "pool_d"
