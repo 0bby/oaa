@@ -140,3 +140,51 @@ test('every vanilla enhancement is in OAA or replaced', function (t) {
   });
   t.end();
 });
+
+// tier -> { start_time, enh: { item: level } }
+function enhancementTiers (kv) {
+  const result = {};
+  const tiers = kv.neutral_items.neutral_tiers;
+  tierKeys(kv).forEach((tier) => {
+    const enh = {};
+    blockKeys(tiers[tier].enhancements).forEach((category) => {
+      const values = tiers[tier].enhancements[category].values || {};
+      Object.keys(values).forEach((item) => { enh[item] = Number(values[item]); });
+    });
+    result[tier] = { start: tiers[tier].values.start_time, enh };
+  });
+  return result;
+}
+
+test('enhancement levels exist on the item', function (t) {
+  const tiers = enhancementTiers(oaa);
+  Object.keys(tiers).forEach((tier) => {
+    Object.keys(tiers[tier].enh).forEach((item) => {
+      const def = (oaaItems[item] && oaaItems[item] !== 'REMOVE') ? oaaItems[item] : dotaItems[item];
+      const max = Number((def && def.values && def.values.MaxLevel) || 1);
+      t.ok(tiers[tier].enh[item] <= max, `tier ${tier} ${item} level ${tiers[tier].enh[item]} <= MaxLevel ${max}`);
+    });
+  });
+  t.end();
+});
+
+test('tiers that start with a vanilla tier offer the same enhancements', function (t) {
+  const replacedBy = {};
+  for (const m of oaaText.matchAll(/"(item_[a-z0-9_]+)"\s+"\d+"\s*\/\/\s*(item_[a-z0-9_]+)/g)) {
+    replacedBy[m[2]] = m[1];
+  }
+  const vanillaTiers = enhancementTiers(vanilla);
+  const oaaTiers = enhancementTiers(oaa);
+  Object.keys(oaaTiers).forEach((tier) => {
+    const match = Object.keys(vanillaTiers).find((v) => vanillaTiers[v].start === oaaTiers[tier].start);
+    if (!match) return; // OAA-only tier (e.g. 5:00), nothing to compare
+    Object.keys(vanillaTiers[match].enh).forEach((item) => {
+      const oaaItem = replacedBy[item] || item;
+      t.ok(oaaItem in oaaTiers[tier].enh, `tier ${tier} (${oaaTiers[tier].start}) has ${oaaItem} like vanilla tier ${match}`);
+      if (!replacedBy[item]) {
+        t.equal(oaaTiers[tier].enh[item], vanillaTiers[match].enh[item], `tier ${tier} ${item} level matches vanilla tier ${match}`);
+      }
+    });
+  });
+  t.end();
+});

@@ -148,35 +148,35 @@
       {
         "global"
         {
-          "item_enhancement_quickened"                    "2"
-          "item_enhancement_greedy_oaa"                   "1" // item_enhancement_greedy
+          "item_enhancement_quickened"                    "1"
+          "item_enhancement_vital"                        "1"
         }
 
         "strength"
         {
-          "item_enhancement_brawny"                       "2"
-          "item_enhancement_tough"                        "2"
+          "item_enhancement_brawny"                       "1"
+          "item_enhancement_tough"                        "1"
           "item_enhancement_crude"                        "1"
         }
 
         "agility"
         {
-          "item_enhancement_alert"                        "2"
-          "item_enhancement_brawny"                       "2"
+          "item_enhancement_alert"                        "1"
+          "item_enhancement_brawny"                       "1"
           "item_enhancement_nimble"                       "1"
         }
 
         "intelligence"
         {
-          "item_enhancement_mystical"                     "2"
-          "item_enhancement_tough"                        "2"
+          "item_enhancement_mystical"                     "1"
+          "item_enhancement_tough"                        "1"
           "item_enhancement_keen_eyed"                    "1"
         }
 
         "universal"
         {
-          "item_enhancement_alert"                        "2"
-          "item_enhancement_mystical"                     "2"
+          "item_enhancement_alert"                        "1"
+          "item_enhancement_mystical"                     "1"
           "item_enhancement_titanic"                      "1"
         }
       }
@@ -237,36 +237,36 @@
       {
         "global"
         {
-          "item_enhancement_quickened"                    "3"
-          "item_enhancement_greedy_oaa"                   "2" // item_enhancement_greedy
+          "item_enhancement_quickened"                    "2"
+          "item_enhancement_vital"                        "2"
         }
 
         "strength"
         {
-          "item_enhancement_brawny"                       "3"
-          "item_enhancement_tough"                        "3"
-          "item_enhancement_crude"                        "2"
+          "item_enhancement_brawny"                       "2"
+          "item_enhancement_tough"                        "2"
+          "item_enhancement_crude"                        "1"
         }
 
         "agility"
         {
-          "item_enhancement_alert"                        "3"
-          "item_enhancement_brawny"                       "3"
-          "item_enhancement_nimble"                       "2"
+          "item_enhancement_alert"                        "2"
+          "item_enhancement_brawny"                       "2"
+          "item_enhancement_nimble"                       "1"
         }
 
         "intelligence"
         {
-          "item_enhancement_mystical"                     "3"
-          "item_enhancement_tough"                        "3"
-          "item_enhancement_keen_eyed"                    "2"
+          "item_enhancement_mystical"                     "2"
+          "item_enhancement_tough"                        "2"
+          "item_enhancement_keen_eyed"                    "1"
         }
 
         "universal"
         {
-          "item_enhancement_alert"                        "3"
-          "item_enhancement_mystical"                     "3"
-          "item_enhancement_titanic"                      "2"
+          "item_enhancement_alert"                        "2"
+          "item_enhancement_mystical"                     "2"
+          "item_enhancement_titanic"                      "1"
         }
       }
     }
@@ -326,36 +326,36 @@
       {
         "global"
         {
-          "item_enhancement_quickened"                    "4"
-          "item_enhancement_timeless"                     "1"
+          "item_enhancement_quickened"                    "3"
+          "item_enhancement_greedy_oaa"                   "2" // item_enhancement_greedy
         }
 
         "strength"
         {
-          "item_enhancement_brawny"                       "4"
-          "item_enhancement_tough"                        "4"
-          "item_enhancement_crude"                        "3"
+          "item_enhancement_brawny"                       "3"
+          "item_enhancement_tough"                        "3"
+          "item_enhancement_crude"                        "2"
         }
 
         "agility"
         {
-          "item_enhancement_alert"                        "4"
-          "item_enhancement_brawny"                       "4"
-          "item_enhancement_nimble"                       "3"
+          "item_enhancement_alert"                        "3"
+          "item_enhancement_brawny"                       "3"
+          "item_enhancement_nimble"                       "2"
         }
 
         "intelligence"
         {
-          "item_enhancement_mystical"                     "4"
-          "item_enhancement_tough"                        "4"
-          "item_enhancement_keen_eyed"                    "3"
+          "item_enhancement_mystical"                     "3"
+          "item_enhancement_tough"                        "3"
+          "item_enhancement_keen_eyed"                    "2"
         }
 
         "universal"
         {
-          "item_enhancement_alert"                        "4"
-          "item_enhancement_mystical"                     "4"
-          "item_enhancement_titanic"                      "3"
+          "item_enhancement_alert"                        "3"
+          "item_enhancement_mystical"                     "3"
+          "item_enhancement_titanic"                      "2"
         }
       }
     }
@@ -416,7 +416,7 @@
       {
         "global"
         {
-          "item_enhancement_timeless"                     "2"
+          "item_enhancement_timeless"                     "1"
           "item_enhancement_evolved"                      "1"
           "item_enhancement_fleetfooted"                  "1"
           "item_enhancement_vampiric"                     "1"
@@ -434,7 +434,7 @@
 
         "intelligence"
         {
-          "item_enhancement_feverish"                     "1" // item_arcane_crystal
+          "item_enhancement_feverish"                     "1"
         }
 
         "universal"
