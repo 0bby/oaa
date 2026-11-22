@@ -10,15 +10,10 @@ const Lib = require('../kv-lib');
 const OAA_FILE = path.join(Lib.npcDir, 'neutral_items.txt');
 const VANILLA_URL = 'https://raw.githubusercontent.com/dotabuff/d2vpkr/refs/heads/master/dota/scripts/npc/neutral_items.txt';
 
-// Vanilla neutrals OAA left out on purpose. Anything else vanilla has must be in OAA's pools
+// Vanilla neutrals OAA leaves out on purpose (none right now). Anything else vanilla has must be in OAA's pools
 // or be named in a replacement comment ("item_oaa_x" "1" // item_vanilla_x).
 const EXCLUDED = {
-  item_safety_bubble: 'removed from OAA around 7.35',
-  item_imp_claw: 'removed from OAA in 7.32',
-  item_ceremonial_robe: 'removed from OAA in 7.28',
-  item_flicker: 'removed from OAA (#2885)',
-  item_mind_breaker: 'removed from OAA (#2885)',
-  item_giants_ring: 'removed from OAA in 7.28'
+  // item_example: 'reason it is left out'
 };
 
 let oaaText = null;
@@ -78,6 +73,7 @@ test('before', function (t) {
 test('neutral tiers use the same layout as vanilla', function (t) {
   const vanillaTier = vanilla.neutral_items.neutral_tiers[tierKeys(vanilla)[0]];
   const vanillaPools = blockKeys(vanillaTier.item_pools);
+  const vanillaPoolSize = vanillaPools.length ? Object.keys(vanillaTier.item_pools[vanillaPools[0]].items.values).length : 0;
   tierKeys(oaa).forEach((tier) => {
     const data = oaa.neutral_items.neutral_tiers[tier];
     if (vanillaPools.length) {
@@ -86,9 +82,9 @@ test('neutral tiers use the same layout as vanilla', function (t) {
       blockKeys(data.item_pools).forEach((pool) => {
         const block = data.item_pools[pool];
         t.ok(block.values && block.values.options, `tier ${tier} ${pool} sets "options"`);
-        // one item in a pool means that item is always offered
+        // same number of items per pool as vanilla (3), so every pool offers a real choice
         const count = block.items ? Object.keys(block.items.values).length : 0;
-        t.ok(count >= 2, `tier ${tier} ${pool} has at least 2 items (has ${count})`);
+        t.equal(count, vanillaPoolSize, `tier ${tier} ${pool} has ${vanillaPoolSize} items like vanilla pools`);
       });
     } else {
       t.ok(data.items, `tier ${tier} has an "items" list like vanilla`);
@@ -116,6 +112,31 @@ test('every vanilla neutral is in OAA, replaced, or excluded on purpose', functi
   Object.keys(pooledItems(vanilla)).forEach((item) => {
     const ok = have[item] || replaced[item] || EXCLUDED[item];
     t.ok(ok, `${item} is in OAA's pools, replaced by an OAA item, or listed in EXCLUDED`);
+  });
+  t.end();
+});
+
+// item -> true for every enhancement in any tier/category
+function enhancements (kv) {
+  const result = {};
+  const tiers = kv.neutral_items.neutral_tiers;
+  tierKeys(kv).forEach((tier) => {
+    const enh = tiers[tier].enhancements;
+    blockKeys(enh).forEach((category) => {
+      Object.keys(enh[category].values || {}).forEach((item) => { result[item] = true; });
+    });
+  });
+  return result;
+}
+
+test('every vanilla enhancement is in OAA or replaced', function (t) {
+  const have = enhancements(oaa);
+  const replaced = {};
+  for (const m of oaaText.matchAll(/"(item_[a-z0-9_]+)"\s+"\d+"\s*\/\/\s*(item_[a-z0-9_]+)/g)) {
+    replaced[m[2]] = m[1];
+  }
+  Object.keys(enhancements(vanilla)).forEach((item) => {
+    t.ok(have[item] || replaced[item] || EXCLUDED[item], `${item} is in OAA's enhancements or replaced by an OAA one`);
   });
   t.end();
 });

@@ -22,10 +22,9 @@
           "options"                                           "1"
           "items"
           {
-            "item_orb_of_destruction"                         "1" // item_chipped_vest
             "item_ash_legion_shield"                          "1"
+            "item_orb_of_destruction"                         "1" // item_chipped_vest
             "item_possessed_mask"                             "1"
-            "item_dagger_of_ristul"                           "1"
           }
         }
         "pool_b"
@@ -33,10 +32,9 @@
           "options"                                           "1"
           "items"
           {
-            "item_unstable_wand"                              "1" // item_dormant_curio
             "item_duelist_gloves"                             "1"
-            "item_spark_of_courage"                           "1" // item_weighted_dice
             "item_red_ledger"                                 "1" // OAA, new 7.42 neutral
+            "item_spark_of_courage"                           "1" // item_weighted_dice
           }
         }
         "pool_c"
@@ -44,9 +42,9 @@
           "options"                                           "1"
           "items"
           {
+            "item_foragers_kit"                               "1" // OAA, new 7.42 neutral
             "item_occult_bracelet"                            "1"
             "item_polliwog_charm"                             "1"
-            "item_foragers_kit"                               "1" // OAA, new 7.42 neutral
           }
         }
         "pool_d"
@@ -54,6 +52,7 @@
           "options"                                           "1"
           "items"
           {
+            "item_dagger_of_ristul"                           "1"
             "item_kobold_cup"                                 "1"
             "item_stonefeather_satchel"                       "1"
           }
@@ -110,6 +109,7 @@
           {
             "item_essence_ring"                               "1"
             "item_poor_mans_shield"                           "1"
+            "item_safety_bubble"                              "1" // OAA, re-added so every pool has 3 (Darkonius)
           }
         }
         "pool_b"
@@ -117,8 +117,9 @@
           "options"                                           "1"
           "items"
           {
-            "item_searing_signet"                             "1"
             "item_crippling_crossbow"                         "1"
+            "item_searing_signet"                             "1"
+            "item_unstable_wand"                              "1" // item_dormant_curio
           }
         }
         "pool_c"
@@ -128,6 +129,7 @@
           {
             "item_defiant_shell"                              "1"
             "item_demon_stone"                                "1" // item_seeds_of_serenity
+            "item_imp_claw"                                   "1" // OAA, re-added so every pool has 3 (Darkonius)
           }
         }
         "pool_d"
@@ -136,8 +138,8 @@
           "items"
           {
             "item_mana_draught"                               "1"
-            "item_pogo_stick"                                 "1"
             "item_medallion_of_courage"                       "1"
+            "item_pogo_stick"                                 "1"
           }
         }
       }
@@ -194,6 +196,7 @@
           "options"                                           "1"
           "items"
           {
+            "item_prophets_pendulum"                          "1"
             "item_psychic_headband"                           "1"
             "item_unrelenting_eye"                            "1"
           }
@@ -203,9 +206,9 @@
           "options"                                           "1"
           "items"
           {
+            "item_brick"                                      "1" // OAA, new 7.42 neutral
             "item_jidi_pollen_bag"                            "1"
             "item_stormcrafter"                               "1"
-            "item_brick"                                      "1" // OAA, new 7.42 neutral
           }
         }
         "pool_c"
@@ -213,8 +216,9 @@
           "options"                                           "1"
           "items"
           {
-            "item_gunpowder_gauntlets"                        "1"
             "item_cloak_of_flames"                            "1"
+            "item_giant_maul"                                 "1"
+            "item_gunpowder_gauntlets"                        "1"
           }
         }
         "pool_d"
@@ -222,9 +226,9 @@
           "options"                                           "1"
           "items"
           {
+            "item_partisans_brand"                            "1"
             "item_serrated_shiv"                              "1"
             "item_spellslinger"                               "1"
-            "item_partisans_brand"                            "1"
           }
         }
       }
@@ -281,10 +285,9 @@
           "options"                                           "1"
           "items"
           {
+            "item_dandelion_amulet"                           "1"
             "item_idol_of_screeauk"                           "1"
             "item_metamorphic_mandible"                       "1"
-            "item_dandelion_amulet"                           "1"
-            "item_prophets_pendulum"                          "1"
           }
         }
         "pool_b"
@@ -292,9 +295,9 @@
           "options"                                           "1"
           "items"
           {
-            "item_giant_maul"                                 "1"
-            "item_rattlecage"                                 "1"
             "item_balmhook"                                   "1" // OAA, new 7.42 neutral
+            "item_mind_breaker"                               "1" // OAA, re-added so every pool has 3 (Darkonius)
+            "item_rattlecage"                                 "1"
           }
         }
         "pool_c"
@@ -302,6 +305,7 @@
           "options"                                           "1"
           "items"
           {
+            "item_ceremonial_robe"                            "1" // OAA, re-added so every pool has 3 (Darkonius)
             "item_conjurers_catalyst"                         "1"
             "item_craggy_coat_oaa"                            "1" // item_enchanters_bauble
           }
@@ -371,8 +375,9 @@
           "options"                                           "1"
           "items"
           {
-            "item_stonework_pendant"                          "1" // item_fallen_sky
+            "item_flicker"                                    "1" // OAA, re-added so every pool has 3 (Darkonius)
             "item_minotaur_horn"                              "1"
+            "item_stonework_pendant"                          "1" // item_fallen_sky
           }
         }
         "pool_b"
@@ -400,6 +405,7 @@
           "options"                                           "1"
           "items"
           {
+            "item_giants_ring"                                "1" // OAA, re-added so every pool has 3 (Darkonius)
             "item_reflex_core"                                "1" // item_demonicon
             "item_riftshadow_prism"                           "1"
           }
