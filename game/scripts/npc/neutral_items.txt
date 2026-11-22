@@ -380,7 +380,6 @@
           "options"                                           "1"
           "items"
           {
-            "item_desolator_2"                                "1"
             "item_blood_sword"                                "1" // item_divine_regalia
             "item_heavy_blade"                                "1"
           }
